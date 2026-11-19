@@ -1,0 +1,507 @@
+/* lav baner: pink tuff by day, basalt by night.
+   Color carries one meaning only: the tricolor mark = Armenian. */
+
+:root {
+  --bg: #f7eee9; /* Yerevan pink tuff */
+  --bg-bar: rgb(247 238 233 / 0.92);
+  --ink: #1c2546; /* manuscript-blue ink */
+  --muted: #5d6178;
+  --line: rgb(28 37 70 / 0.14);
+  --line-strong: rgb(28 37 70 / 0.28);
+  --accent: #b3001b; /* pomegranate */
+  --flag-red: #d90012;
+  --flag-blue: #0033a0;
+  --flag-apricot: #f2a800;
+
+  --wrap: 72rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16171b; /* basalt */
+    --bg-bar: rgb(22 23 27 / 0.92);
+    --ink: #eee7e2;
+    --muted: #a4a2ad;
+    --line: rgb(238 231 226 / 0.13);
+    --line-strong: rgb(238 231 226 / 0.28);
+    --accent: #ff6b78;
+    --flag-blue: #2f5fd0;
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 9rem;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+a:hover {
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  padding-top: 1.25rem;
+  padding-bottom: 2.25rem;
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  align-items: center;
+  font-size: 0.9375rem;
+}
+
+.lang-switch {
+  color: var(--muted);
+  text-decoration: none;
+}
+.lang-switch:hover {
+  color: var(--accent);
+}
+
+.suggest {
+  display: inline-block;
+  padding: 0.4rem 0.95rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+.suggest:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* The one loud thing: the wordmark, stitched from beads. Hover turns them into hearts. */
+.wordmark {
+  margin: clamp(1.5rem, 6vw, 3.5rem) 0 0;
+  font-family: var(--font-mark);
+  font-weight: 500;
+  font-size: clamp(4.75rem, 19vw, 12.5rem);
+  line-height: 0.8;
+  letter-spacing: 0.01em;
+  font-variation-settings: "ELSH" 8;
+  transition: font-variation-settings 0.9s steps(8, end);
+  width: fit-content;
+  padding-bottom: 0.14em; /* room for the descenders of լ, բ, ր */
+}
+.wordmark:hover {
+  font-variation-settings: "ELSH" 16;
+}
+
+.gloss {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.intro {
+  margin: 1.25rem 0 0;
+  max-width: 40rem;
+  font-size: clamp(1.125rem, 2.2vw, 1.3125rem);
+  line-height: 1.45;
+}
+
+/* ---------- filter bar ---------- */
+
+.filters {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg-bar);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-block: 1px solid var(--line);
+}
+
+/* On phones a sticky 4-row bar would eat a quarter of the screen: let it scroll away. */
+@media (max-width: 40rem) {
+  .filters {
+    position: static;
+  }
+  html {
+    scroll-padding-top: 1rem;
+  }
+}
+
+.filters-inner {
+  display: grid;
+  gap: 0.65rem;
+  padding-block: 0.75rem;
+}
+
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.origin {
+  display: inline-flex;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 2px;
+}
+.origin button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 0;
+  background: none;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+.origin button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 1 14rem;
+  max-width: 22rem;
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--muted);
+}
+.search:focus-within {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  padding: 0.35rem 0;
+}
+.search input:focus {
+  outline: none;
+}
+.search input::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.sections,
+.topics {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-inline: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter);
+}
+.sections::-webkit-scrollbar,
+.topics::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 60rem) {
+  .sections,
+  .topics {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+}
+
+.chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex: none;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.chip .count {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.chip[aria-current="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+.chip[aria-current="true"] .count {
+  color: inherit;
+  opacity: 0.7;
+}
+.chip.is-zero {
+  opacity: 0.4;
+}
+
+.topic {
+  flex: none;
+  border: 0;
+  background: none;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.topic::before {
+  content: "#";
+  opacity: 0.5;
+}
+.topic:hover {
+  color: var(--ink);
+}
+.topic[aria-pressed="true"] {
+  color: var(--bg);
+  background: var(--accent);
+}
+.topic[aria-pressed="true"]::before {
+  opacity: 0.8;
+}
+
+/* ---------- groups and entries ---------- */
+
+main {
+  padding-bottom: 4rem;
+}
+
+.showing {
+  margin: 1.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+  min-height: 1.3em;
+}
+
+.group {
+  margin-top: 2.75rem;
+}
+
+.group-title {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-mark);
+  font-weight: 500;
+  font-size: clamp(2.25rem, 6vw, 3.25rem);
+  line-height: 1;
+  font-variation-settings: "ELSH" 8;
+}
+
+.entries {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: 2rem 2.5rem;
+}
+
+.entry {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+  padding-top: 0.9rem;
+}
+
+.entry-name {
+  margin: 0;
+  font-size: 1.1875rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.entry-name a {
+  text-decoration: none;
+}
+.entry-name a:hover {
+  text-decoration: underline;
+}
+
+.flag {
+  display: inline-block;
+  width: 0.95rem;
+  height: 0.65rem;
+  margin-right: 0.5rem;
+  vertical-align: 0.05em;
+  border-radius: 1px;
+  background: linear-gradient(
+    var(--flag-red) 0 33.4%,
+    var(--flag-blue) 33.4% 66.7%,
+    var(--flag-apricot) 66.7% 100%
+  );
+}
+.origin .flag {
+  margin-right: 0;
+}
+
+.entry-alt {
+  margin: 0.1rem 0 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.entry-desc {
+  margin: 0.5rem 0 0;
+  max-width: 34rem;
+}
+
+.entry-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+.entry-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.entry-topics li::before {
+  content: "#";
+  opacity: 0.5;
+}
+
+.entry-links {
+  display: flex;
+  gap: 0.15rem;
+  margin: 0 0 0 auto;
+  padding: 0;
+  list-style: none;
+}
+.entry-links a {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  color: var(--muted);
+}
+.entry-links a:hover {
+  color: var(--accent);
+  background: var(--line);
+}
+
+/* Sayings: the Armenian text is the content. */
+.saying {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.saying-literal {
+  margin: 0.45rem 0 0;
+  color: var(--ink);
+}
+.saying-meaning {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.empty {
+  margin-top: 3rem;
+  max-width: 30rem;
+}
+.empty p:first-child {
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+}
+.empty p:last-child {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-block: 2rem 3rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+.footer p {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wordmark {
+    transition: none;
+  }
+}

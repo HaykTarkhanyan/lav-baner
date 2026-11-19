@@ -1,0 +1,36 @@
+title = "lav-baner: first version of the site"
+date = "2026-11-19"
+time = "11:10"
+areas = ["src/", "public/", ".github/workflows/", "docs (README, DECISIONS, DEFERRED_TODO)"]
+
+done = [
+  "Chose the stack with Hayk: Astro 7 + one YAML data file + GitHub Pages; bilingual EN (/) and HY (/hy/) with hreflang; suggestions via the old random site's Google Form",
+  "Sections by kind (learn, film, music, dance, memes, sayings, photography, initiatives, tools) + Armenian/International switch, topic chips, search, URL-synced filter state",
+  "Design: pink tuff / basalt palette, Handjet wordmark (beads -> hearts on hover), Google Sans body; fonts self-hosted and subset (Handjet 11.6 KB)",
+  "Researched links for ~60 items with two Sonnet agents (two batches on one agent), recovered hyperlinks from the weekly_links sheet via xlsx export, pulled the old HaykTarkhanyan/random Quarto site",
+  "77 entries in src/data/items.yaml (31 learn, 16 sayings, 8 tools, ...), schema-validated against src/taxonomy.ts",
+  "Build fails loudly on YAML syntax errors (custom hook) and on schema errors (Zod); both verified with deliberately broken files",
+  "Icon sprite, favicon (beaded l-b), og.png social card, sitemap with language alternates, JSON-LD ItemList",
+]
+pending = [
+  "Cherry-pick from the weekly_links sheet (videos, memes, songs, Kargin quotes, 12 wallpapers for Photography)",
+  "Hayk to review the proverb meanings I was unsure of (tutuz, finger and ring, tan/matsun) and all Armenian descriptions",
+  "Hell News Telegram/Instagram not found; ML EVN Telegram is invite-only",
+]
+next = [
+  "Check the first GitHub Actions deploy and the live URL",
+  "Submit the sitemap in Google Search Console",
+  "Cherry-pick session for weekly_links",
+]
+files = [
+  "astro.config.mjs", "src/taxonomy.ts", "src/content.config.ts", "src/i18n.ts", "src/data/items.yaml",
+  "src/layouts/Base.astro", "src/components/Home.astro", "src/components/Entry.astro", "src/components/IconSprite.astro",
+  "src/styles/global.css", "public/favicon.svg", "public/og.png", ".github/workflows/deploy.yml",
+]
+commits = []
+notes = """
+Agents found several wrong assumptions in the brief: mathteam.notion.so does not resolve (it is .notion.site); @UgheghAmprop is
+a dead handle (the real one is Armenian-script); @nobelprizes is an Armenian-language channel, not the official Nobel one;
+the YouTube link given for Menq enq mer sarery was actually Voske tsliky; the Puss in Boots cell in the sheet pointed to a
+pirate site (replaced with Wikipedia/IMDb). exurb1a was kept as asked, though there are public abuse allegations against him.
+"""

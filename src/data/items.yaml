@@ -1,0 +1,937 @@
+# Every entry on lav baner lives in this file. See README.md for how to add one.
+#
+# Regular entry:
+#   - id: kebab-case-unique-id
+#     section: learn | film | music | dance | memes | sayings | photography | initiatives | tools
+#     armenian: true            # Armenian-made or in Armenian (shows the flag mark)
+#     name: Name in Latin script
+#     name_hy: Անունը հայերեն   # optional
+#     description:
+#       en: One or two plain sentences.
+#       hy: Մեկ-երկու պարզ նախադասություն։
+#     topics: [math, science]   # keys from src/taxonomy.ts
+#     links:                    # link types from src/taxonomy.ts
+#       youtube: https://...
+#
+# Saying (section: sayings): `text` (the Armenian original), `translation` (literal
+# English) and `meaning` (English) instead of name/description.
+#
+# Order inside a section is the order on the page.
+
+# ---------------------------------------------------------------- learn
+
+- id: metric-academy
+  section: learn
+  armenian: true
+  name: "Metric Academy: Python, math and ML course"
+  description:
+    en: Free Armenian-language course in Python, the math behind machine learning, and machine learning itself, from the basics to neural networks and LLMs. Lectures run live on Zoom and are recorded on YouTube; materials and homework are on the site.
+    hy: Անվճար հայալեզու դասընթաց Python-ի, մեքենայական ուսուցման մաթեմատիկայի և հենց մեքենայական ուսուցման մասին՝ հիմունքներից մինչև նեյրոնային ցանցեր և LLM-ներ։ Դասերն անցնում են Zoom-ով և ձայնագրվում YouTube-ում, նյութերն ու տնայինները կայքում են։
+  topics: [programming, math, ai, course, free]
+  links:
+    website: https://hayktarkhanyan.github.io/python_math_ml_course/
+    youtube: https://www.youtube.com/@MetricAcademy
+    telegram: https://t.me/metric_academy
+    github: https://github.com/HaykTarkhanyan/python_math_ml_course
+
+- id: hamalsaranakan-matematika
+  section: learn
+  armenian: true
+  name: Hamalsaranakan matematika
+  name_hy: Համալսարանական մաթեմատիկա
+  description:
+    en: University-level math lectures in Armenian (analysis, linear algebra, differential equations, topology, probability and more), with written materials on the team's Notion site.
+    hy: Բուհական մաթեմատիկայի դասախոսություններ հայերենով (մաթեմատիկական անալիզ, գծային հանրահաշիվ, դիֆերենցիալ հավասարումներ, տոպոլոգիա, հավանականություն և այլն), իսկ գրավոր նյութերը թիմի Notion կայքում են։
+  topics: [math, lectures, free]
+  links:
+    website: https://mathteam.notion.site
+    youtube: https://www.youtube.com/@hamalsaranakan_matematika
+
+- id: qarakusi
+  section: learn
+  armenian: true
+  name: Qarakusi.am
+  name_hy: Քառակուսի.am
+  description:
+    en: An online club for school math in Armenian (combinatorics, algebra, geometry, number theory) with themed lessons, exercises, a problem bank and contests.
+    hy: Դպրոցական մաթեմատիկայի խորացված ուսուցման առցանց խմբակ (կոմբինատորիկա, հանրահաշիվ, երկրաչափություն, թվերի տեսություն)՝ թեմատիկ դասերով, վարժություններով, խնդիրների շտեմարանով և մրցույթներով։
+  topics: [math, education]
+  links:
+    website: https://qarakusi.am/
+
+- id: ml-evn
+  section: learn
+  armenian: true
+  name: ML EVN
+  description:
+    en: "The hub of Yerevan's machine learning community: research groups, meetups, events, companies and learning resources in one place."
+    hy: Երևանի մեքենայական ուսուցման համայնքի կենտրոնը՝ հետազոտական խմբեր, հանդիպումներ, միջոցառումներ, ընկերություններ և ուսումնական նյութեր մեկ տեղում։
+  topics: [ai, community]
+  links:
+    website: https://mlevn.org/
+    x: https://x.com/ml_evn
+    facebook: https://www.facebook.com/MLEVN.org/
+    github: https://github.com/MLEVN
+
+- id: banakan
+  section: learn
+  armenian: true
+  name: Banakan
+  name_hy: Բանական
+  description:
+    en: Veritasium videos narrated in Armenian, plus a few other science lectures and talks.
+    hy: Veritasium-ի վիդեոները հայերեն ձայնագրությամբ, նաև մի քանի այլ գիտական դասախոսություններ և ելույթներ։
+  topics: [science, in-armenian]
+  links:
+    youtube: https://www.youtube.com/@banakan.science
+
+- id: gitadaran
+  section: learn
+  armenian: true
+  name: Gitadaran
+  name_hy: Գիտադարան
+  description:
+    en: Short explainers in Armenian on science, history, philosophy and psychology, many of them translated from TED-Ed and similar channels.
+    hy: Կարճ բացատրական վիդեոներ հայերենով գիտության, պատմության, փիլիսոփայության և հոգեբանության մասին, շատերը՝ թարգմանված TED-Ed-ից և նմանատիպ ալիքներից։
+  topics: [science, history, psychology, in-armenian]
+  links:
+    youtube: https://www.youtube.com/@gitadarann
+    facebook: https://www.facebook.com/gitadaran
+    x: https://x.com/gitadaran
+
+- id: aree
+  section: learn
+  armenian: true
+  name: Aree Educational Center
+  description:
+    en: "Physics in Armenian: Armenian versions of ScienceClic videos (relativity, quantum field theory, black holes) and its own explainers."
+    hy: Ֆիզիկա հայերենով՝ ScienceClic-ի վիդեոների հայերեն տարբերակները (հարաբերականություն, քվանտային դաշտի տեսություն, սև խոռոչներ) և սեփական բացատրական վիդեոներ։
+  topics: [science, in-armenian]
+  links:
+    youtube: https://www.youtube.com/@areeeducationalcenter
+    instagram: https://www.instagram.com/aree.education/
+    facebook: https://www.facebook.com/aree.education
+    patreon: https://www.patreon.com/AreeEducationalCenter
+
+- id: cassette
+  section: learn
+  armenian: true
+  name: Cassette
+  name_hy: Կասետ
+  description:
+    en: "In-depth educational videos in Armenian, made or translated by the team: science, history, economics and filmmaking."
+    hy: Խորքային կրթական վիդեոներ հայերենով՝ թիմի ստեղծած կամ թարգմանած. գիտություն, պատմություն, տնտեսագիտություն և կինոարվեստ։
+  topics: [science, history, in-armenian]
+  links:
+    youtube: https://www.youtube.com/@casseteai
+
+- id: interesting-in-armenian
+  section: learn
+  armenian: true
+  name: Interesting in Armenian
+  name_hy: Հետաքրքիրը հայերենով
+  description:
+    en: General-interest explainers in Armenian about history, nature, discoveries and world events.
+    hy: Ընդհանուր հետաքրքրության բացատրական վիդեոներ հայերենով՝ պատմության, բնության, հայտնագործությունների և աշխարհի իրադարձությունների մասին։
+  topics: [history, science, in-armenian]
+  links:
+    youtube: https://www.youtube.com/@interestinginArmenian
+    instagram: https://www.instagram.com/interestinginarmenian/
+    facebook: https://www.facebook.com/interestinginArmenian/
+
+- id: 3blue1brown-armenian
+  section: learn
+  armenian: true
+  name: 3Blue1Brown in Armenian
+  name_hy: 3blue1brown հայերեն
+  description:
+    en: Armenian versions of 3Blue1Brown's linear algebra series. A young channel, two videos so far.
+    hy: 3Blue1Brown-ի գծային հանրահաշվի շարքի հայերեն տարբերակները։ Նոր ալիք է, առայժմ երկու վիդեո։
+  topics: [math, in-armenian]
+  links:
+    youtube: https://www.youtube.com/@3blue1brown12
+
+- id: ughegh-amprop
+  section: learn
+  armenian: true
+  name: Ughegh Amprop
+  name_hy: Ուղեղամպրոպ
+  description:
+    en: Short explainers and translated videos in Armenian on science and thinking, plus a guide to making Armenian podcasts with NotebookLM.
+    hy: Կարճ բացատրական և թարգմանված վիդեոներ հայերենով գիտության ու մտածողության մասին, նաև ուղեցույց, թե ինչպես NotebookLM-ով հայերեն փոդքասթներ պատրաստել։
+  topics: [science, in-armenian]
+  links:
+    youtube: https://www.youtube.com/@%D5%88%D6%82%D5%B2%D5%A5%D5%B2%D5%A1%D5%B4%D5%BA%D6%80%D5%B8%D5%BA
+    telegram: https://t.me/ugheghamprop
+    notion: https://ugheghamprop.notion.site
+
+- id: bardzunk
+  section: learn
+  armenian: true
+  name: Bardzunk
+  name_hy: Բարձունք
+  description:
+    en: A volunteer education movement whose channel has long interviews and talks about education and public life, including the series Կիրթ ԵՐԿԻՐ.
+    hy: Կամավորական կրթական շարժում, որի ալիքում երկար հարցազրույցներ և զրույցներ են կրթության և հասարակական կյանքի մասին, այդ թվում՝ «Կիրթ ԵՐԿԻՐ» շարքը։
+  topics: [education, ideas]
+  links:
+    website: https://www.bardzunk.am/
+    youtube: https://www.youtube.com/@Bardzunk
+    telegram: https://t.me/bardzunk
+    instagram: https://www.instagram.com/bardzunk/
+    facebook: https://www.facebook.com/bardzunk/
+
+- id: boon-tv
+  section: learn
+  armenian: true
+  name: Boon TV
+  name_hy: Բուն TV
+  description:
+    en: An Armenian online science-and-arts TV channel with lectures, interviews and talk shows, built around open and free education. Includes a lecture series by Arshak Balayan.
+    hy: Հայկական առցանց գիտական-մշակութային հեռուստաալիք՝ դասախոսություններով, հարցազրույցներով և զրույցներով, որի նպատակը բաց ու անվճար կրթությունն է։ Կա նաև Արշակ Բալայանի դասախոսությունների շարք։
+  topics: [lectures, science, education]
+  links:
+    website: http://boon.am/
+    youtube: https://www.youtube.com/@officialboontv
+    telegram: https://t.me/boon_tv
+    instagram: https://www.instagram.com/boon_tv/
+    facebook: https://www.facebook.com/boonTVofficial
+
+- id: ashot-nakashyan-webinars
+  section: learn
+  armenian: true
+  name: Webinars by Ashot Nakashyan
+  name_hy: Աշոտ Նաքաշյանի վեբինարները
+  description:
+    en: "Over a hundred Armenian-language webinars on all kinds of topics: the cell and the brain, mindfulness, happiness, the purpose of education, culture."
+    hy: Հարյուրից ավելի հայալեզու վեբինարներ ամենատարբեր թեմաներով՝ բջիջն ու ուղեղը, գիտակցվածություն, երջանկություն, կրթության նպատակը, մշակույթ։
+  topics: [lectures, science, psychology]
+  links:
+    youtube: https://www.youtube.com/playlist?list=PLDFcOFPXHa-rYLeQREErNZfFiS8db5HNU
+
+- id: nobel-prizes-armenian
+  section: learn
+  armenian: true
+  name: Nobel Prizes in Armenian
+  name_hy: Նոբելյան մրցանակներ
+  description:
+    en: Armenian-language explainers on Nobel Prize-winning discoveries such as CRISPR, autophagy, quantum dots and microRNA.
+    hy: Հայալեզու բացատրական վիդեոներ Նոբելյան մրցանակի արժանացած հայտնագործությունների մասին՝ CRISPR, աուտոֆագիա, քվանտային կետեր, միկրոՌՆԹ։
+  topics: [science]
+  links:
+    youtube: https://www.youtube.com/@nobelprizes
+
+- id: krisp-kitchen
+  section: learn
+  armenian: true
+  name: Krisp Kitchen
+  description:
+    en: "A podcast in Armenian with the team behind Krisp about building an AI product: engineering, product, marketing and finance."
+    hy: Հայալեզու փոդքասթ Krisp-ի թիմի հետ՝ ԱԲ պրոդուկտ ստեղծելու մասին. ինժեներիա, պրոդուկտ, մարքեթինգ և ֆինանսներ։
+  topics: [ai, podcast]
+  links:
+    youtube: https://www.youtube.com/@krisp.kitchen
+
+- id: bigstory-podcast
+  section: learn
+  armenian: true
+  name: BigStory Podcast
+  description:
+    en: Armenian tech founders and investors talk about startups, AI and investing, in Armenian.
+    hy: Հայ տեխնոլոգիական հիմնադիրներ և ներդրողներ զրուցում են ստարտափների, ԱԲ-ի և ներդրումների մասին։
+  topics: [ai, podcast]
+  links:
+    youtube: https://www.youtube.com/@BigStoryPodcast-dr6xs
+
+- id: rearrange
+  section: learn
+  armenian: true
+  name: Rearrange with Narek Amirkhanyan
+  description:
+    en: Long interviews in Armenian with guests on history, identity, society and personal growth.
+    hy: Նարեկ Ամիրխանյանի երկար հարցազրույցները հյուրերի հետ՝ պատմության, ինքնության, հասարակության և անձնական աճի մասին։
+  topics: [podcast, ideas, history]
+  links:
+    youtube: https://www.youtube.com/@rearrange
+    patreon: https://www.patreon.com/rearrange
+    facebook: https://www.facebook.com/rearrangepodcast/
+
+- id: ux-core
+  section: learn
+  armenian: true
+  name: UX Core (Keep Simple)
+  description:
+    en: A free library of cognitive biases with over 1,000 examples of how they show up in products and management. Available in Armenian.
+    hy: Կոգնիտիվ հակումների անվճար գրադարան՝ հազարից ավելի օրինակներով, թե ինչպես են դրանք դրսևորվում պրոդուկտներում և մենեջմենթում։ Կա հայերեն տարբերակ։
+  topics: [psychology, design, free]
+  links:
+    website: https://keepsimple.io/hy/uxcore
+
+- id: grahavak
+  section: learn
+  armenian: true
+  name: Grahavak
+  name_hy: Գրահավաք
+  description:
+    en: "A hub for the Armenian language and books: Classical and Western Armenian, libraries and digital archives, dictionaries, audiobooks, fonts, keyboards and an orthography converter. Made by Seda Stamboltsyan."
+    hy: Հայերենի և գրքերի մասին նյութերի կենտրոն՝ գրաբար և արևմտահայերեն, գրադարաններ և թվային արխիվներ, բառարաններ, աուդիոգրքեր, տառատեսակներ, ստեղնաշարեր և ուղղագրության փոխարկիչ։ Ստեղծել է Սեդա Ստամբոլցյանը։
+  topics: [language, culture, free]
+  links:
+    website: https://www.grahavak.com/
+
+- id: armenian-dialects
+  section: learn
+  armenian: true
+  name: Armenian Dialects Appreciation Post
+  name_hy: Հայրենեան բարբառ
+  description:
+    en: A huge Reddit post collecting songs, videos, short stories and written samples in dozens of Armenian dialects (Akn, Agulis, Arabkir and many more), with pointers to Adjarian's 1911 dialectology.
+    hy: Reddit-ի մեծածավալ գրառում, որտեղ հավաքված են երգեր, վիդեոներ, պատմվածքներ և գրավոր նմուշներ հայերենի տասնյակ բարբառներով (Ակն, Ագուլիս, Արաբկիր և շատ ուրիշներ), նաև հղումներ Աճառյանի 1911 թվականի բարբառագիտությանը։
+  topics: [language, culture, folk]
+  links:
+    reddit: https://www.reddit.com/r/armenia/comments/rz82tq/
+
+- id: ara-the-rat
+  section: learn
+  armenian: true
+  name: Ara the Rat (blog)
+  description:
+    en: The blog of an Armenian design shop, with short English posts on Armenian culture, film posters, diaspora stories and pop-culture trivia.
+    hy: Հայկական դիզայնի խանութի բլոգը՝ անգլերեն կարճ գրառումներով հայկական մշակույթի, ֆիլմերի պաստառների, սփյուռքի պատմությունների և փոփ-մշակույթի հետաքրքիր փաստերի մասին։
+  topics: [culture, history]
+  links:
+    website: https://www.aratherat.com/blogs/home-page
+
+- id: welch-labs
+  section: learn
+  name: Welch Labs
+  description:
+    en: Carefully animated explainers on machine learning and AI, from backpropagation to why deep learning works at all.
+    hy: Խնամքով անիմացված բացատրական վիդեոներ մեքենայական ուսուցման և ԱԲ-ի մասին՝ backpropagation-ից մինչև այն, թե ինչու է խորը ուսուցումն ընդհանրապես աշխատում։
+  topics: [ai, math]
+  links:
+    website: https://www.welchlabs.com
+    youtube: https://www.youtube.com/@WelchLabs
+    patreon: https://www.patreon.com/welchlabs
+
+- id: andrej-karpathy
+  section: learn
+  name: Andrej Karpathy
+  description:
+    en: "Long lectures where neural networks and LLMs are coded from scratch. The series 'Neural Networks: Zero to Hero' builds up to a GPT step by step."
+    hy: "Երկար դասախոսություններ, որտեղ նեյրոնային ցանցերն ու LLM-ները գրվում են զրոյից։ «Neural Networks: Zero to Hero» շարքը քայլ առ քայլ հասնում է մինչև GPT։"
+  topics: [ai, programming, lectures]
+  links:
+    website: https://karpathy.ai/
+    youtube: https://www.youtube.com/@AndrejKarpathy
+    x: https://x.com/karpathy
+    github: https://github.com/karpathy
+
+- id: 3blue1brown
+  section: learn
+  name: 3Blue1Brown
+  description:
+    en: "Grant Sanderson's animated math, made for visual intuition: linear algebra, calculus, probability, and also neural networks and transformers."
+    hy: Գրանտ Սանդերսոնի անիմացված մաթեմատիկան՝ տեսողական ինտուիցիայի համար. գծային հանրահաշիվ, անալիզ, հավանականություն, նաև նեյրոնային ցանցեր ու տրանսֆորմերներ։
+  topics: [math, ai]
+  links:
+    website: https://www.3blue1brown.com/
+    youtube: https://www.youtube.com/@3blue1brown
+    x: https://x.com/3blue1brown
+    github: https://github.com/3b1b
+
+- id: yannic-kilcher
+  section: learn
+  name: Yannic Kilcher
+  description:
+    en: Detailed walkthroughs of machine learning research papers, plus commentary on AI news.
+    hy: Մեքենայական ուսուցման գիտական հոդվածների մանրամասն վերլուծություններ և մեկնաբանություններ ԱԲ-ի նորությունների շուրջ։
+  topics: [ai, science]
+  links:
+    website: https://www.ykilcher.com/
+    youtube: https://www.youtube.com/@YannicKilcher
+    x: https://x.com/ykilcher
+    github: https://github.com/yk
+
+- id: dwarkesh-podcast
+  section: learn
+  name: Dwarkesh Podcast
+  description:
+    en: Deeply researched long interviews with AI researchers, scientists and historians.
+    hy: Խորապես նախապատրաստված երկար հարցազրույցներ ԱԲ հետազոտողների, գիտնականների և պատմաբանների հետ։
+  topics: [ai, podcast, ideas]
+  links:
+    website: https://www.dwarkesh.com/
+    youtube: https://www.youtube.com/@DwarkeshPatel
+    spotify: https://open.spotify.com/show/4JH4tybY1zX6e5hjCwU6gF
+    apple_podcasts: https://podcasts.apple.com/us/podcast/the-lunar-society/id1516093381
+    x: https://x.com/dwarkesh_sp
+
+- id: veritasium
+  section: learn
+  name: Veritasium
+  description:
+    en: "Derek Muller's science and engineering channel: experiments, demonstrations and interviews with experts."
+    hy: Դերեկ Մյուլերի ալիքը գիտության և ինժեներիայի մասին՝ փորձեր, ցուցադրություններ և հարցազրույցներ մասնագետների հետ։
+  topics: [science]
+  links:
+    website: https://www.veritasium.com/
+    youtube: https://www.youtube.com/@veritasium
+    instagram: https://www.instagram.com/veritasium
+    x: https://x.com/veritasium
+
+- id: kurzgesagt
+  section: learn
+  name: Kurzgesagt - In a Nutshell
+  description:
+    en: Beautifully animated videos on science, space, biology and the big questions.
+    hy: Գեղեցիկ անիմացված վիդեոներ գիտության, տիեզերքի, կենսաբանության և մեծ հարցերի մասին։
+  topics: [science, animation]
+  links:
+    website: https://kurzgesagt.org/
+    youtube: https://www.youtube.com/@kurzgesagt
+    instagram: https://www.instagram.com/kurzgesagt/
+    patreon: https://www.patreon.com/Kurzgesagt
+
+- id: oversimplified
+  section: learn
+  name: OverSimplified
+  description:
+    en: Funny animated summaries of wars and historical events.
+    hy: Պատերազմների և պատմական իրադարձությունների զվարճալի անիմացված ամփոփումներ։
+  topics: [history, animation, comedy]
+  links:
+    website: https://oversimplified.tv/
+    youtube: https://www.youtube.com/@OverSimplified
+    instagram: https://www.instagram.com/over_simplified/
+
+- id: exurb1a
+  section: learn
+  name: exurb1a
+  description:
+    en: Video essays and short films mixing philosophy, science and dark humor.
+    hy: Վիդեո-էսսեներ և կարճ ֆիլմեր, որտեղ խառնված են փիլիսոփայությունը, գիտությունը և սև հումորը։
+  topics: [ideas, science]
+  links:
+    youtube: https://www.youtube.com/@exurb1a
+    patreon: https://www.patreon.com/exurb1r
+
+# ---------------------------------------------------------------- film
+
+- id: we-and-our-mountains
+  section: film
+  armenian: true
+  name: We and Our Mountains
+  name_hy: Մենք ենք մեր սարերը
+  description:
+    en: 1969 comedy by Henrik Malyan, written by Hrant Matevosyan, about shepherds in the Armenian highlands. Widely counted among the best Armenian films. The full film is on the Armenian Cinema Foundation's official channel.
+    hy: Հենրիկ Մալյանի 1969 թվականի կատակերգությունը՝ Հրանտ Մաթևոսյանի սցենարով, հայկական լեռներում ապրող հովիվների մասին։ Համարվում է լավագույն հայկական ֆիլմերից մեկը։ Ամբողջական ֆիլմը Հայաստանի կինոյի հիմնադրամի պաշտոնական ալիքում է։
+  topics: [comedy, classic]
+  links:
+    youtube: https://www.youtube.com/watch?v=9CbMaPXC8SI
+    wikipedia: https://en.wikipedia.org/wiki/We_and_Our_Mountains
+    imdb: https://www.imdb.com/title/tt0361903/
+
+- id: voske-tsliky
+  section: film
+  armenian: true
+  name: The Golden Bull Calf
+  name_hy: Ոսկե ցլիկը
+  description:
+    en: "1955 comedy short (about 31 minutes) by Moko Hakobyan: two rival collective farms fight over a prize breeding calf."
+    hy: Մոկո Հակոբյանի 1955 թվականի կարճամետրաժ կատակերգությունը (մոտ 31 րոպե). երկու մրցակից կոլտնտեսություն կռվում են մրցանակային ցլիկի համար։
+  topics: [comedy, classic]
+  links:
+    youtube: https://www.youtube.com/watch?v=yO8lGUufKpI
+
+- id: puss-in-boots-the-last-wish
+  section: film
+  name: "Puss in Boots: The Last Wish"
+  description:
+    en: 2022 DreamWorks animation by Joel Crawford. Puss has used up eight of his nine lives and goes after a wishing star, with Death on his trail. Seriously, it's very good.
+    hy: DreamWorks-ի 2022 թվականի անիմացիոն ֆիլմը (ռեժ.՝ Ջոել Քրոֆորդ)։ Կոշիկավոր կատուն ծախսել է իր ինը կյանքերից ութը և գնում է ցանկություններ կատարող աստղի հետևից, իսկ նրա հետքերով գալիս է Մահը։ Լուրջ եմ ասում, շատ լավն ա։
+  topics: [animation]
+  links:
+    wikipedia: https://en.wikipedia.org/wiki/Puss_in_Boots:_The_Last_Wish
+    imdb: https://www.imdb.com/title/tt3915174/
+
+- id: eternal-sunshine
+  section: film
+  name: Eternal Sunshine of the Spotless Mind
+  description:
+    en: 2004 film by Michel Gondry, written by Charlie Kaufman. After his ex has him erased from her memory, Joel does the same to her, and changes his mind halfway through.
+    hy: Միշել Գոնդրիի 2004 թվականի ֆիլմը՝ Չարլի Քաուֆմանի սցենարով։ Երբ նախկին ընկերուհին Ջոելին ջնջում է իր հիշողությունից, Ջոելն էլ է նույնն անում, բայց կեսից փոշմանում է։
+  links:
+    wikipedia: https://en.wikipedia.org/wiki/Eternal_Sunshine_of_the_Spotless_Mind
+    imdb: https://www.imdb.com/title/tt0338013/
+
+# ---------------------------------------------------------------- music
+
+- id: saghsara
+  section: music
+  armenian: true
+  name: Saghsara
+  name_hy: Սաղսարա
+  description:
+    en: A music and documentary project that records villagers in Armenia singing old folk songs, then builds new arrangements around those recordings.
+    hy: Երաժշտական-վավերագրական նախագիծ, որը ձայնագրում է, թե ինչպես են Հայաստանի գյուղերի բնակիչները երգում հին ժողովրդական երգեր, ապա այդ ձայնագրությունների շուրջ ստեղծում նոր մշակումներ։
+  topics: [folk, culture]
+  links:
+    youtube: https://www.youtube.com/@saghsara
+    facebook: https://www.facebook.com/saghsara/
+
+- id: armenian-bands-list
+  section: music
+  armenian: true
+  name: "Armenian bands and musicians: a very subjective list"
+  name_hy: Հայ խմբեր և երաժիշտներ. մաքսիմալ սուբյեկտիվ ցուցակ
+  description:
+    en: A hand-made spreadsheet of Armenian bands and musicians, from Tigran Hamasyan and The Windrose to Araspel and Tmbata, each with a short note and a few favorite songs.
+    hy: Հայ խմբերի և երաժիշտների ձեռքով կազմված աղյուսակ՝ Տիգրան Համասյանից և The Windrose-ից մինչև Առասպել և Tmbata, յուրաքանչյուրի մասին կարճ նշումով և մի քանի սիրելի կատարումներով։
+  topics: [culture]
+  links:
+    sheet: https://docs.google.com/spreadsheets/d/1rMq3hJ4jcJ6t0G0rmsYICY7XmiLYM7hCxq58cD8XPyE/edit
+
+- id: kargin-soundtracks
+  section: music
+  armenian: true
+  name: Kargin Haghordum soundtracks
+  name_hy: Կարգին հաղորդման երգերը
+  description:
+    en: A fan-made YouTube playlist of 257 songs heard in Kargin Haghordum.
+    hy: Կարգին հաղորդման մեջ հնչած 257 երգերի YouTube փլեյլիստ՝ երկրպագուի կազմած։
+  topics: [kargin]
+  links:
+    youtube: https://www.youtube.com/playlist?list=PL8sh2VJuXs-t-FQZ4OkeQdBCFqwJWCNQP
+
+# ---------------------------------------------------------------- dance
+
+- id: karin
+  section: dance
+  armenian: true
+  name: Karin Folk Group
+  name_hy: Կարին ավանդական երգի-պարի խումբ
+  description:
+    en: Traditional song and dance group in Yerevan (since 2001) with classes for adults and children, monthly open dance evenings, and dance tutorials on YouTube.
+    hy: Ավանդական երգի և պարի խումբ Երևանում (2001-ից)՝ դասընթացներով մեծերի և երեխաների համար, ամենամսյա բաց պարային երեկոներով և YouTube-ում պարերի ուսուցողական վիդեոներով։
+  topics: [folk, culture]
+  links:
+    website: https://karinfolk.am/
+    youtube: https://www.youtube.com/@karinfolkgroup
+    instagram: https://www.instagram.com/karin_folk_group/
+    facebook: https://www.facebook.com/karin.folk.group
+    tiktok: https://www.tiktok.com/@karin_folk
+
+- id: masunq
+  section: dance
+  armenian: true
+  name: Masunq Folk Ensemble
+  name_hy: Մասունք ավանդական երգի-պարի խումբ
+  description:
+    en: Traditional song and dance ensemble in Yerevan that performs folk dances, songs, traditional games and wedding rituals, and keeps a large video archive.
+    hy: Ավանդական երգի և պարի համույթ Երևանում, որը կատարում է ժողովրդական պարեր, երգեր, ավանդական խաղեր և հարսանեկան ծեսեր, և ունի տեսանյութերի մեծ արխիվ։
+  topics: [folk, culture]
+  links:
+    website: https://masunq.am/
+    youtube: https://www.youtube.com/@masunq
+    instagram: https://www.instagram.com/masunq/
+    facebook: https://www.facebook.com/Masunq.am
+
+- id: areg
+  section: dance
+  armenian: true
+  name: Areg Folk Dance Troupe
+  name_hy: Արեգ ազգային պարի խումբ
+  description:
+    en: Armenian folk dance group in Yerevan that gives classes and open lessons in traditional dances.
+    hy: Ազգային պարի խումբ Երևանում, որն ավանդական պարերի դասեր և բաց պարապմունքներ է անցկացնում։
+  topics: [folk, culture]
+  links:
+    facebook: https://www.facebook.com/AregDance/
+    youtube: https://www.youtube.com/@aregfolkdancetroupe1462
+
+- id: armenian-folk-in-motion
+  section: dance
+  armenian: true
+  name: Armenian Folk in Motion
+  description:
+    en: "A volunteer network of Armenian folk dance and song groups in Europe. It runs yearly gatherings and shares teaching material: dances, songs and playlists."
+    hy: Եվրոպայում գործող հայկական ժողովրդական պարի և երգի խմբերի կամավորական ցանց։ Կազմակերպում է տարեկան հավաքներ և կիսվում ուսուցողական նյութերով՝ պարեր, երգեր, փլեյլիստներ։
+  topics: [folk, community]
+  links:
+    website: https://sites.google.com/view/armfolkinmotion/context-and-goals
+    instagram: https://www.instagram.com/arm.folk.in.motion/
+
+# ---------------------------------------------------------------- memes & satire
+
+- id: hell-news
+  section: memes
+  armenian: true
+  name: Hell News
+  name_hy: Լուրեր դժոխքից
+  description:
+    en: "Satirical news from hell about Armenian politics and everyday life: parody headlines and short videos."
+    hy: Երգիծական լուրեր դժոխքից՝ հայկական քաղաքականության և առօրյայի մասին. ծաղրական վերնագրեր և կարճ տեսանյութեր։
+  topics: [satire]
+  links:
+    facebook: https://www.facebook.com/hellnews.am/
+
+- id: ministry-of-clarification
+  section: memes
+  armenian: true
+  name: Ministry of Clarification
+  name_hy: ՀՀ պարզաբանման նախարարություն
+  description:
+    en: A parody "government ministry" that issues fake official decisions and statements.
+    hy: Ծաղրական «նախարարություն», որը հրապարակում է կեղծ պաշտոնական որոշումներ և հայտարարություններ։
+  topics: [satire]
+  links:
+    facebook: https://www.facebook.com/MinistryOfClarification/
+
+- id: babken
+  section: memes
+  armenian: true
+  name: Babken
+  description:
+    en: Absurd Armenian animated shorts by Babken Navasardyan. The main series, Անասուններ ("Animals"), stars talking farm animals.
+    hy: Բաբկեն Նավասարդյանի աբսուրդ հումորով հայկական անիմացիոն կարճամետրաժներ։ Հիմնական շարքը՝ «Անասուններ», խոսող ագարակային կենդանիների մասին է։
+  topics: [animation, comedy]
+  links:
+    youtube: https://www.youtube.com/channel/UCcBJPWLED23nU6-UJGKvqAQ
+
+- id: boxk
+  section: memes
+  armenian: true
+  name: BOXK
+  name_hy: Բողկ
+  description:
+    en: "An Armenian humor channel: Armenian dubs of animated series like Metal Family, parodies and cartoons, including one on how Armenian films get made."
+    hy: Հայկական հումորային ալիք՝ անիմացիոն սերիալների (օրինակ՝ Metal Family) հայերեն կրկնօրինակումներ, պարոդիաներ և մուլտեր, այդ թվում՝ այն մասին, թե ինչպես են նկարահանվում հայկական ֆիլմերը։
+  topics: [comedy, animation]
+  links:
+    youtube: https://www.youtube.com/@%D5%A2%D5%B8%D5%B2%D5%AF
+    telegram: https://t.me/boxk_chat
+    patreon: https://www.patreon.com/boxk
+
+- id: dzi-podcast
+  section: memes
+  armenian: true
+  name: Dzi podcast
+  name_hy: Ձի փոդքասթ
+  description:
+    en: A loose Armenian talk podcast with stand-up and humor that jumps between topics like conspiracy theories, police, tourism and universities.
+    hy: Ազատ ոճի հայալեզու զրույց-փոդքասթ՝ սթենդափով և հումորով, որը թռչում է թեմայից թեմա՝ դավադրության տեսություններ, ոստիկանություն, զբոսաշրջություն, համալսարաններ։
+  topics: [podcast, comedy]
+  links:
+    youtube: https://www.youtube.com/@dzi.podcast5308
+    telegram: https://t.me/dzipodcast
+    facebook: https://www.facebook.com/dzi.podcast
+    x: https://x.com/DziPodcast
+
+- id: kargin-archive
+  section: memes
+  armenian: true
+  name: Kargin Archive
+  name_hy: Կարգին Արխիվ
+  description:
+    en: "A searchable archive of 702 Kargin sketches, indexed line by line: search by a quote, actor or place and jump straight to the sketch. Also works as a Telegram bot."
+    hy: Կարգինի 702 սքեչի որոնելի արխիվ՝ տող առ տող։ Որոնեք մեջբերումով, դերասանով կամ վայրով և անմիջապես անցեք սքեչին։ Կա նաև Telegram բոտ։
+  topics: [kargin, comedy]
+  links:
+    website: https://karginhaghordum.am
+    telegram: https://t.me/KarginSearchBot
+
+# ---------------------------------------------------------------- jokes & sayings
+
+- id: esh-kerel-poch-mnacel
+  section: sayings
+  armenian: true
+  text: Էշը կերել, պոչը մնացել
+  translation: The donkey's been eaten, only the tail is left.
+  meaning: The job is almost done; only a small bit remains.
+  topics: [proverb, donkey]
+
+- id: esh-mi-satki
+  section: sayings
+  armenian: true
+  text: Էշ մի սատկի, գարուն ա գալիս
+  translation: Don't die, donkey, spring is coming.
+  meaning: Said of promises of better times that will come too late to help.
+  topics: [proverb, donkey]
+
+- id: esh-cexic-hanel
+  section: sayings
+  armenian: true
+  text: Էշը ցեխից հանել
+  translation: To pull the donkey out of the mud.
+  meaning: To finally get a stuck job done, with a lot of effort.
+  topics: [proverb, donkey]
+
+- id: eshi-akanjin-qnac
+  section: sayings
+  armenian: true
+  text: Էշի ականջին քնած
+  translation: Asleep on the donkey's ear.
+  meaning: Completely unaware of what is going on.
+  topics: [proverb, donkey]
+
+- id: eshn-inch-giti-nushy
+  section: sayings
+  armenian: true
+  text: Էշն ինչ գիտի նուշը ինչ ա
+  translation: What does a donkey know about almonds?
+  meaning: Some people can't appreciate a good thing. Pearls before swine.
+  topics: [proverb, donkey]
+
+- id: mer-eshn-a
+  section: sayings
+  armenian: true
+  text: Էշ ա, բայց դե մեր էշն ա
+  translation: He's a donkey, but he's our donkey.
+  meaning: Flawed, but one of us.
+  topics: [proverb, donkey]
+
+- id: mi-caghkov-garun
+  section: sayings
+  armenian: true
+  text: Մի ծաղկով գարուն չի գա
+  translation: One flower doesn't bring spring.
+  meaning: One good sign doesn't mean things have changed. One swallow doesn't make a summer.
+  topics: [proverb]
+
+- id: urishi-harsi-tutuzov
+  section: sayings
+  armenian: true
+  text: Ուրիշի հարսի տուտուզով փեսուն լավություն անել
+  translation: To do the groom a favor with someone else's bride's backside.
+  meaning: To be generous at someone else's expense.
+  topics: [proverb]
+
+- id: mati-u-matanu-arank
+  section: sayings
+  armenian: true
+  text: Մտնել մատի ու մատանու արանքը
+  translation: To get between the finger and the ring.
+  meaning: To meddle between two people who are very close.
+  topics: [proverb]
+
+- id: sev-sirt-vardaguyn-trusik
+  section: sayings
+  armenian: true
+  text: Իմ սև սիրտ, քո վարդագույն տռուսիկ
+  translation: My black heart, your pink underpants.
+  meaning: A mock-romantic line. It means nothing, which is the point.
+  topics: [proverb]
+
+- id: karmir-kovy
+  section: sayings
+  armenian: true
+  text: Կարմիր կովը կաշին չի փոխում
+  translation: The red cow doesn't change its hide.
+  meaning: People don't change their nature. A leopard can't change its spots.
+  topics: [proverb]
+
+- id: voch-mi-lav-gorc
+  section: sayings
+  armenian: true
+  text: Ոչ մի լավ գործ անպատիժ չի մնում
+  translation: No good deed goes unpunished.
+  meaning: The same as in English.
+  topics: [proverb]
+
+- id: tan-el-che
+  section: sayings
+  armenian: true
+  text: Թան էլ չէ, փրթած մածուն
+  translation: Not even tan, but curdled matsun.
+  meaning: Neither one thing nor the other. (Tan is a yogurt drink, matsun is yogurt.)
+  topics: [proverb]
+
+- id: vaghy-che-myus-ory
+  section: sayings
+  armenian: true
+  text: Վաղը չէ մյուս օրը
+  translation: Not tomorrow, the other day.
+  meaning: How Armenian says "the day after tomorrow".
+  topics: [language]
+
+- id: trashov-antrash
+  section: sayings
+  armenian: true
+  text: Թրաշով ու անթրաշ
+  translation: '"With stubble" and "unshaven".'
+  meaning: Opposite-looking words that mean the same thing, like "flammable" and "inflammable".
+  topics: [language]
+
+- id: tasnerord-hark
+  section: sayings
+  armenian: true
+  text: "1-ին և 10-րդ հարկերից ընկնելու տարբերությունը. 10-րդ հարկից՝ «Աաաաա՜, դը՛խկ», 1-ին հարկից՝ «Դը՛խկ, աաաաա՜»"
+  translation: 'The difference between falling from the 10th floor and the 1st. From the 10th: "Aaaaah! Thud." From the 1st: "Thud. Aaaaah!"'
+  topics: [joke]
+
+# ---------------------------------------------------------------- photography
+
+- id: tigran-madoyan
+  section: photography
+  armenian: true
+  name: Tigran Madoyan
+  description:
+    en: "Photographer and videographer who has documented Armenian folk music and dance for over 15 years: thousands of free videos of performances, open classes and festivals."
+    hy: Լուսանկարիչ և տեսանկարիչ, որը 15 տարուց ավելի վավերագրում է հայկական ժողովրդական երաժշտությունն ու պարը՝ հազարավոր անվճար տեսանյութեր ելույթներից, բաց դասերից և փառատոներից։
+  topics: [folk, culture]
+  links:
+    youtube: https://www.youtube.com/@TigranMadoyan
+    instagram: https://www.instagram.com/tigran.madoyan/
+    facebook: https://www.facebook.com/tigran.madoyan
+    patreon: https://www.patreon.com/TigranMadoyan
+
+# ---------------------------------------------------------------- initiatives
+
+- id: children-of-the-regions
+  section: initiatives
+  armenian: true
+  name: Children of the Regions (MEM)
+  name_hy: Մարզերի երեխաները մարզերում (ՄԵՄ)
+  description:
+    en: "An educational NGO building a network of young leaders from Armenia's regions: a leadership academy, computers for children in the regions, camps and webinars."
+    hy: Կրթական ՀԿ, որը ստեղծում է Հայաստանի մարզերի երիտասարդ առաջնորդների ցանց՝ առաջնորդության ակադեմիա, համակարգիչներ մարզերի երեխաների համար, ճամբարներ և վեբինարներ։
+  topics: [education, regions]
+  links:
+    website: https://mem.team/
+    youtube: https://www.youtube.com/@Children_of_regions
+    telegram: https://t.me/ourprovinces
+    instagram: https://www.instagram.com/children_in_regions/
+    facebook: https://www.facebook.com/Children.of.Regions
+    linkedin: https://www.linkedin.com/company/regionchildren/
+
+- id: awesome-foundation-yerevan
+  section: initiatives
+  armenian: true
+  name: Awesome Foundation Yerevan
+  description:
+    en: Every month a group of trustees gives a no-strings micro-grant worth $1,000 to the most awesome idea for Yerevan.
+    hy: Ամեն ամիս հոգաբարձուների խումբը 1000 դոլարին համարժեք առանց պայմանների միկրոդրամաշնորհ է տալիս Երևանի համար ամենաթույն գաղափարին։
+  topics: [grants, community, yerevan]
+  links:
+    website: https://www.awesomefoundation.org/hy/chapters/yerevan
+    instagram: https://www.instagram.com/awesome_foundation_yerevan/
+    facebook: https://www.facebook.com/awesomeEVN
+
+- id: imast
+  section: initiatives
+  armenian: true
+  name: IMAST
+  description:
+    en: A charity app that connects donors with vetted Armenian nonprofits, for one-off or recurring donations, and takes no fees from donations.
+    hy: Բարեգործական հավելված, որը նվիրատուներին կապում է ստուգված հայկական ՀԿ-ների հետ՝ միանվագ կամ պարբերական նվիրատվությունների համար, և նվիրատվություններից միջնորդավճար չի գանձում։
+  topics: [charity]
+  links:
+    website: https://imast.am/
+    instagram: https://www.instagram.com/imast_am
+    facebook: https://www.facebook.com/imast.armenia
+    app_store: https://apps.apple.com/app/id6461573200
+    google_play: https://play.google.com/store/apps/details?id=am.imast
+
+- id: hfc
+  section: initiatives
+  armenian: true
+  name: Health Fund for Children of Armenia
+  name_hy: Հայաստանի երեխաների առողջության հիմնադրամ
+  description:
+    en: Pays for medical treatment for children from Armenia, mostly care that is only possible in hospitals abroad. Funded by donations.
+    hy: Հոգում է Հայաստանի երեխաների բուժման ծախսերը, հիմնականում այն բուժման, որը հնարավոր է միայն արտասահմանյան հիվանդանոցներում։ Ֆինանսավորվում է նվիրատվություններով։
+  topics: [charity]
+  links:
+    website: https://hfc.am/en/
+    facebook: https://www.facebook.com/hfcarmenia
+
+# ---------------------------------------------------------------- tools & maps
+
+- id: the-true-size-of
+  section: tools
+  name: The True Size Of
+  description:
+    en: Drag countries around a world map to see how the Mercator projection distorts their size. Greenland versus Africa is the classic.
+    hy: Քաշեք երկրները աշխարհի քարտեզի վրայով և տեսեք, թե Մերկատորի պրոյեկցիան ինչպես է աղավաղում դրանց չափերը։ Դասական օրինակը Գրենլանդիան և Աֆրիկան են։
+  topics: [maps, free]
+  links:
+    website: https://thetruesize.com/
+
+- id: landmark-am
+  section: tools
+  armenian: true
+  name: LandMark.am
+  description:
+    en: "An Armenian Heritage Map: a growing map archive of Armenia's natural and historic landmarks."
+    hy: Հայկական ժառանգության քարտեզ՝ Հայաստանի բնական և պատմական տեսարժան վայրերի անընդհատ համալրվող քարտեզ-արխիվ։
+  topics: [maps, history, culture]
+  links:
+    website: https://landmark.am/
+    patreon: https://www.patreon.com/landmarkam
+
+- id: yerevan-street-names
+  section: tools
+  armenian: true
+  name: The Soul of Yerevan's Streets
+  name_hy: Երևանի փողոցների հոգին
+  description:
+    en: Short histories of the people and places Yerevan's streets are named after, with a map to find a street and jump to its story. A work in progress.
+    hy: Կարճ պատմություններ այն մարդկանց և վայրերի մասին, որոնց անուններով կոչվում են Երևանի փողոցները, և քարտեզ՝ փողոցը գտնելու և նրա պատմությանն անցնելու համար։ Աշխատանքը դեռ ընթացքի մեջ է։
+  topics: [yerevan, history, maps]
+  links:
+    notion: https://steadfast-salamander-ea8.notion.site/1b9caa439173808e9445cf0bc847f79a
+    map: https://yandex.eu/maps/?ll=44.726270%2C40.268065&mode=usermaps&source=constructorLink&um=constructor%3A122e61f1134fd17bfa7543b9dd28c2d4f7322d4f7aa7c1a3d5fc3d992a50c216&z=11
+    pdf: https://drive.google.com/file/d/1HCY1uLiHClP_2gZDqKFmV6PqgembC0-1/view
+
+- id: fonter-am
+  section: tools
+  armenian: true
+  name: Fonter.am
+  description:
+    en: A catalog of over 200 Armenian Unicode fonts, filterable by style and license. Most are free; check each font's license.
+    hy: Ավելի քան 200 հայերեն յունիկոդ տառատեսակների կատալոգ՝ ըստ ոճի և լիցենզիայի ֆիլտրերով։ Մեծ մասն անվճար է, բայց ստուգեք յուրաքանչյուրի լիցենզիան։
+  topics: [design, language, free]
+  links:
+    website: https://fonter.am/hy/fonts
+    telegram: https://t.me/fonter_am
+    facebook: https://www.facebook.com/fonter.am/
+
+- id: auphonic
+  section: tools
+  name: Auphonic
+  description:
+    en: "Automatic audio cleanup for podcasts and talks: noise reduction, leveling, filler-word cutting, transcripts and chapters. Two hours a month are free."
+    hy: Աուդիոյի ավտոմատ մաքրում փոդքասթների և ելույթների համար՝ աղմուկի նվազեցում, ձայնի հավասարեցում, ավելորդ բառերի կտրում, տեքստի վերծանում և գլուխներ։ Ամսական 2 ժամն անվճար է։
+  topics: [podcast, free]
+  links:
+    website: https://auphonic.com/
+
+- id: markdown-to-pdf
+  section: tools
+  name: Markdown to PDF (APITemplate)
+  description:
+    en: Paste Markdown, see a live preview and download a PDF. Free.
+    hy: Տեղադրեք Markdown տեքստը, տեսեք նախադիտումը և ներբեռնեք PDF։ Անվճար է։
+  topics: [programming, free]
+  links:
+    website: https://apitemplate.io/pdf-tools/convert-markdown-to-pdf/
+
+- id: photiu-background-remover
+  section: tools
+  name: Photiu background remover
+  description:
+    en: Removes image backgrounds in the browser, also in batches. Free at web resolution; high-resolution downloads cost credits.
+    hy: Հեռացնում է նկարների ֆոնը բրաուզերում, նաև միանգամից շատ նկարներից։ Վեբ որակով անվճար է, բարձր որակով ներբեռնումները՝ կրեդիտներով։
+  topics: [design]
+  links:
+    website: https://www.photiu.ai/background-remover
+
+- id: blogfox-chapters
+  section: tools
+  name: BlogFox YouTube chapter generator
+  description:
+    en: Generates YouTube chapters with timestamps for a video.
+    hy: Ստեղծում է YouTube վիդեոյի գլուխներ՝ ժամային նշումներով։
+  links:
+    website: https://blogfox.ai/youtube-chapter-generator

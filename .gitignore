@@ -1,0 +1,23 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# Playwright MCP screenshots and snapshots
+.playwright-mcp/
+
+# logs
+logs/
+npm-debug.log*
+
+# environment
+.env
+.env.*
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
