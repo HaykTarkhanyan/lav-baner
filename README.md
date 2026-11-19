@@ -41,6 +41,10 @@ A saying (proverbs, jokes, quotes) uses `text`, `translation` and `meaning` inst
   topics: [proverb, donkey]
 ```
 
+**Logo (optional):** put a square image at `src/assets/logos/<id>.webp` (or `.png` / `.jpg`), named after the entry's `id`. Films use a poster (2:3). 128 px is plenty; the build makes the small versions. Without a logo the entry shows its section's emoji.
+
+Every topic gets its own page, `/topics/<topic>/` (and `/hy/topics/<topic>/`), built automatically.
+
 Rules the build checks (it fails with a message if one is broken):
 
 - `section`, `topics` and link types must be names listed in [`src/taxonomy.ts`](src/taxonomy.ts). To add a new topic or link type, add it there with both an English and an Armenian label.

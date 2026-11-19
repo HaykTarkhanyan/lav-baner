@@ -1,7 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { LINK_KEYS, LINK_TYPES, TOPICS, type Lang, type LinkKey } from "../taxonomy";
-import { UI } from "../i18n";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import { LINK_KEYS, LINK_TYPES, SECTIONS, TOPICS, type Lang, type LinkKey } from "../taxonomy";
+import { UI, pathFor } from "../i18n";
 
 interface Props {
   item: CollectionEntry<"items">["data"];
@@ -9,6 +11,12 @@ interface Props {
 }
 const { item, lang } = Astro.props;
 const t = UI[lang];
+
+// Logos live in src/assets/logos/<id>.(webp|png|jpg); an entry without one shows its section emoji.
+const logos = import.meta.glob<{ default: ImageMetadata }>("../assets/logos/*.{webp,png,jpg,jpeg}", { eager: true });
+const logo = Object.entries(logos).find(([path]) => path.split("/").pop()!.replace(/\.\w+$/, "") === item.id)?.[1]
+  .default;
+const isFilm = item.section === "film";
 
 // Links in the fixed taxonomy order; the first one is the link on the name.
 const links = LINK_KEYS.filter((k) => item.links[k]).map((k) => ({
@@ -58,19 +66,36 @@ const searchText = [
       </>
     ) : (
       <>
-        <h3 class="entry-name">
-          {item.armenian && (
-            <span class="flag" role="img" aria-label={t.armenianMark} title={t.armenianMark} />
+        <div class="entry-head">
+          {logo ? (
+            <Image
+              src={logo}
+              alt=""
+              width={isFilm ? 48 : 44}
+              densities={[1, 2]}
+              class:list={["logo", { "logo--poster": isFilm }]}
+            />
+          ) : (
+            <span class:list={["logo", "logo--emoji", { "logo--poster": isFilm }]} aria-hidden="true">
+              {SECTIONS[item.section].emoji}
+            </span>
           )}
-          <a href={primary.href} rel="noopener" lang={lang === "hy" && item.name_hy ? "hy" : undefined}>
-            {mainName}
-          </a>
-        </h3>
-        {altName && (
-          <p class="entry-alt" lang={lang === "en" ? "hy" : undefined}>
-            {altName}
-          </p>
-        )}
+          <div>
+            <h3 class="entry-name">
+              {item.armenian && (
+                <span class="flag" role="img" aria-label={t.armenianMark} title={t.armenianMark} />
+              )}
+              <a href={primary.href} rel="noopener" lang={lang === "hy" && item.name_hy ? "hy" : undefined}>
+                {mainName}
+              </a>
+            </h3>
+            {altName && (
+              <p class="entry-alt" lang={lang === "en" ? "hy" : undefined}>
+                {altName}
+              </p>
+            )}
+          </div>
+        </div>
         <p class="entry-desc">{description}</p>
       </>
     )
@@ -81,7 +106,9 @@ const searchText = [
         {item.topics.length > 0 && (
           <ul class="entry-topics">
             {item.topics.map((k) => (
-              <li>{TOPICS[k][lang]}</li>
+              <li>
+                <a href={pathFor(lang, k)}>{TOPICS[k][lang]}</a>
+              </li>
             ))}
           </ul>
         )}

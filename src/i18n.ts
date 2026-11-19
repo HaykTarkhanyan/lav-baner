@@ -31,6 +31,11 @@ export const UI = {
     footer: "Made in Yerevan and Munich. Know something that belongs here?",
     source: "Source on GitHub",
     switchTo: "Հայերեն",
+    topicTitle: (topic: string) => `#${topic} on lav baner`,
+    topicDescription: (topic: string, n: number) =>
+      `${n} hand-picked good things tagged ${topic}: channels, films, communities and tools worth your time.`,
+    topicCount: (n: number) => (n === 1 ? "1 thing" : `${n} things`),
+    backHome: "All good things",
   },
   hy: {
     title: "Լավ բաներ",
@@ -54,11 +59,17 @@ export const UI = {
     footer: "Պատրաստված է Երևանում և Մյունխենում։ Գիտե՞ք մի բան, որ պետք է այստեղ լինի։",
     source: "Կոդը GitHub-ում",
     switchTo: "English",
+    topicTitle: (topic: string) => `#${topic} | Լավ բաներ`,
+    topicDescription: (topic: string, n: number) =>
+      `${n} ձեռքով ընտրված լավ բան «${topic}» թեմայով՝ ալիքներ, ֆիլմեր, համայնքներ և գործիքներ։`,
+    topicCount: (n: number) => `${n} բան`,
+    backHome: "Բոլոր լավ բաները",
   },
 } satisfies Record<Lang, unknown>;
 
-export function pathFor(lang: Lang): string {
-  return lang === "en" ? `${SITE.base}/` : `${SITE.base}/hy/`;
+export function pathFor(lang: Lang, topic?: string): string {
+  const root = lang === "en" ? `${SITE.base}/` : `${SITE.base}/hy/`;
+  return topic ? `${root}topics/${topic}/` : root;
 }
 
 export function absoluteUrl(path: string): string {

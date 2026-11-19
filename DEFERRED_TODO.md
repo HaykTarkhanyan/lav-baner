@@ -1,5 +1,7 @@
 # Deferred
 
+- **Wordmark choice pending** (2026-11-19): hearts removed; the live site shows still beads as a placeholder. Hayk will choose from the comparison pages (round 1: W1-W7, round 2 with apricot and more creative hovers). When chosen, re-cut `src/assets/fonts/handjet-wordmark.woff2` if the variant needs other axes (wght, ELGR) than the current ELSH 8-16 instance.
+
 - **Proverb meanings to get from Hayk** (my guesses were taken off the live site on 2026-11-19; add a `meaning:` line to each in `items.yaml`):
   - `urishi-harsi-tutuzov` Ուրիշի հարսի տուտուզով փեսուն լավություն անել (my guess was "to be generous at someone else's expense")
   - `mati-u-matanu-arank` Մտնել մատի ու մատանու արանքը (guess: "to meddle between two very close people")

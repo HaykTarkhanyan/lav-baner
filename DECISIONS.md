@@ -2,6 +2,22 @@
 
 Newest first.
 
+## 8. Logos are downloaded into the repo, not hotlinked
+
+- **Date / status:** 2026-11-19, active (Hayk asked for logos and images)
+- **Decision:** each entry's logo is a 128 px WebP in `src/assets/logos/<id>.webp`, optimized by Astro at build (44 px shown, 1x + 2x). Sources, in order: YouTube channel avatar, Telegram channel avatar, the site's apple-touch-icon (>= 96 px), the Facebook page picture, the site's og:image. Films: Wikipedia poster. No logo: the section emoji.
+- **Why:** self-hosted images keep the site fast and free of third-party requests and trackers, and they don't break when a CDN URL rotates. 51 logos weigh 260 KB in the repo. Fetched 51 of 61 automatically in 41 s; two Armenian films had no poster anywhere fetchable, and cropped YouTube frames looked bad, so they show the emoji.
+- **Alternatives rejected:** hotlinking avatars (YouTube avatar URLs expire, privacy), a runtime favicon service like unavatar.io (third-party dependency on every page view).
+- **What would change this:** logos go stale often enough that a scheduled refetch is needed.
+
+## 7. Hashtags open static topic pages
+
+- **Date / status:** 2026-11-19, active (Hayk: "clicking on a hashtag to bring to its page from all locations")
+- **Decision:** every topic used by an entry gets `/topics/<key>/` and `/hy/topics/<key>/`, rendered by the same `Home` component with a `topic` prop. All hashtags (on entries and in the header) link there; on a topic page the header shows only related topics. The hashtag row moved out of the sticky filter bar into the header.
+- **Why:** real pages are indexable (good for SEO, e.g. "#math" in Armenian) and shareable. As filters in the sticky bar, 31 topics took three rows (~250 px of a 900 px screen).
+- **Alternatives rejected:** keeping topics as in-page filters (`?t=math`): not separate pages, not indexed.
+- **What would change this:** combining several topics at once becomes a real need.
+
 ## 6. A build hook re-parses items.yaml so a syntax error fails the build
 
 - **Date / status:** 2026-11-19, active
@@ -44,7 +60,7 @@ Newest first.
 
 ## 1. Visual direction: pink tuff, basalt, beaded wordmark
 
-- **Date / status:** 2026-11-19, active
+- **Date / status:** 2026-11-19, revisited 2026-11-19 (Hayk liked the design but not the hearts; the hover effect is off until he picks a new one, see DEFERRED_TODO.md)
 - **Decision:** background is Yerevan pink tuff `#F7EEE9` (dark mode: basalt `#16171B`), ink blue `#1C2546`, pomegranate accent. Body in Google Sans (one family for Latin and Armenian). The wordmark and section headings are Handjet with the element-shape axis at 8 (beads), switching to 16 (hearts) on hover.
 - **Why:** of the 8 Google Fonts families with Armenian glyphs (checked against fonts.google.com metadata on 2026-11-19), Handjet is the only one that can carry an identity; at ELSH 8 it reads like cross-stitch. The font is cut with fontTools to wght 500, ELGR 1, ELSH 8-16, Basic Latin + Armenian: 11.6 KB woff2 (full font 284 KB).
 - **Alternatives rejected:** Noto Serif/Sans Armenian everywhere (safe but generic); warm cream + serif (the default look of generated sites).

@@ -4,18 +4,18 @@
 
 type Label = { en: string; hy: string };
 
-// Order here = order on the page.
+// Order here = order on the page. The emoji also stands in for a missing logo.
 export const SECTIONS = {
-  learn: { en: "Learn", hy: "Սովորել" },
-  film: { en: "Film", hy: "Ֆիլմեր" },
-  music: { en: "Music", hy: "Երաժշտություն" },
-  dance: { en: "Dance", hy: "Պար" },
-  memes: { en: "Memes & satire", hy: "Մեմեր և երգիծանք" },
-  sayings: { en: "Jokes & sayings", hy: "Անեկդոտներ և ասացվածքներ" },
-  photography: { en: "Photography", hy: "Լուսանկարչություն" },
-  initiatives: { en: "Initiatives", hy: "Նախաձեռնություններ" },
-  tools: { en: "Tools & maps", hy: "Գործիքներ և քարտեզներ" },
-} satisfies Record<string, Label>;
+  learn: { en: "Learn", hy: "Սովորել", emoji: "🎓" },
+  film: { en: "Film", hy: "Ֆիլմեր", emoji: "🎬" },
+  music: { en: "Music", hy: "Երաժշտություն", emoji: "🎵" },
+  dance: { en: "Dance", hy: "Պար", emoji: "💃" },
+  memes: { en: "Memes & satire", hy: "Մեմեր և երգիծանք", emoji: "😂" },
+  sayings: { en: "Jokes & sayings", hy: "Անեկդոտներ և ասացվածքներ", emoji: "🫏" },
+  photography: { en: "Photography", hy: "Լուսանկարչություն", emoji: "📷" },
+  initiatives: { en: "Initiatives", hy: "Նախաձեռնություններ", emoji: "🤝" },
+  tools: { en: "Tools & maps", hy: "Գործիքներ և քարտեզներ", emoji: "🧭" },
+} satisfies Record<string, Label & { emoji: string }>;
 
 export const TOPICS = {
   ai: { en: "AI", hy: "ԱԲ" },

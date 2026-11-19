@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+import Home from "../../components/Home.astro";
+import type { TopicKey } from "../../taxonomy";
+
+// One page per topic that at least one entry uses.
+export async function getStaticPaths() {
+  const items = await getCollection("items");
+  const used = new Set(items.flatMap((e) => e.data.topics));
+  return [...used].map((topic) => ({ params: { topic } }));
+}
+const { topic } = Astro.params;
+---
+
+<Home lang="en" topic={topic as TopicKey} />

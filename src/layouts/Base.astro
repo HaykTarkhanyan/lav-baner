@@ -6,19 +6,25 @@ import type { Lang } from "../taxonomy";
 
 interface Props {
   lang: Lang;
+  // Set on topic pages: the topic key (for URLs) plus page-specific title and description.
+  topic?: string;
+  title?: string;
+  description?: string;
   // Items for the JSON-LD ItemList (name + main URL), so search engines see the list.
   listItems?: { name: string; url: string }[];
 }
-const { lang, listItems = [] } = Astro.props;
+const { lang, topic, listItems = [] } = Astro.props;
 const t = UI[lang];
-const canonical = absoluteUrl(pathFor(lang));
+const title = Astro.props.title ?? t.title;
+const description = Astro.props.description ?? t.metaDescription;
+const canonical = absoluteUrl(pathFor(lang, topic));
 const ogImage = absoluteUrl(`${SITE.base}/og.png`);
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: t.title,
-  description: t.metaDescription,
+  name: title,
+  description,
   url: canonical,
   inLanguage: lang,
   mainEntity: {
@@ -39,12 +45,12 @@ const jsonLd = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{t.title}</title>
-    <meta name="description" content={t.metaDescription} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="en" href={absoluteUrl(pathFor("en"))} />
-    <link rel="alternate" hreflang="hy" href={absoluteUrl(pathFor("hy"))} />
-    <link rel="alternate" hreflang="x-default" href={absoluteUrl(pathFor("en"))} />
+    <link rel="alternate" hreflang="en" href={absoluteUrl(pathFor("en", topic))} />
+    <link rel="alternate" hreflang="hy" href={absoluteUrl(pathFor("hy", topic))} />
+    <link rel="alternate" hreflang="x-default" href={absoluteUrl(pathFor("en", topic))} />
     <link rel="icon" href={`${SITE.base}/favicon.svg`} type="image/svg+xml" />
     <link rel="sitemap" href={`${SITE.base}/sitemap-index.xml`} />
     <meta name="theme-color" content="#F7EEE9" media="(prefers-color-scheme: light)" />
@@ -52,8 +58,8 @@ const jsonLd = {
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="lav baner" />
-    <meta property="og:title" content={t.title} />
-    <meta property="og:description" content={t.metaDescription} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />

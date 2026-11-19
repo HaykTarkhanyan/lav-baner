@@ -1,38 +1,44 @@
 ---
+// The whole page: the home page (no `topic`) or a topic page (/topics/<topic>/).
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
 import Entry from "./Entry.astro";
 import IconSprite from "./IconSprite.astro";
-import { SECTIONS, SECTION_KEYS, TOPICS, TOPIC_KEYS, LINK_KEYS, type Lang } from "../taxonomy";
+import { SECTIONS, SECTION_KEYS, TOPICS, TOPIC_KEYS, LINK_KEYS, type Lang, type TopicKey } from "../taxonomy";
 import { SITE, UI, pathFor } from "../i18n";
 
 interface Props {
   lang: Lang;
+  topic?: TopicKey;
 }
-const { lang } = Astro.props;
+const { lang, topic } = Astro.props;
 const t = UI[lang];
 const other: Lang = lang === "en" ? "hy" : "en";
 
-const items = (await getCollection("items")).map((e) => e.data).sort((a, b) => a.order - b.order);
+const allItems = (await getCollection("items")).map((e) => e.data).sort((a, b) => a.order - b.order);
 // Astro logs a YAML syntax error in items.yaml but still builds with an empty collection.
 // Fail the build instead of publishing an empty site.
-if (items.length === 0) {
+if (allItems.length === 0) {
   throw new Error(
     "items.yaml produced no entries. It probably has a YAML syntax error: see the [file-loader] error above. " +
       "Common cause: an unquoted value containing ': ' (wrap the value in double quotes).",
   );
 }
+const items = topic ? allItems.filter((i) => i.topics.includes(topic)) : allItems;
+const topicLabel = topic ? TOPICS[topic][lang] : undefined;
+
 const groups = SECTION_KEYS.map((key) => ({
   key,
   label: SECTIONS[key][lang],
+  emoji: SECTIONS[key].emoji,
   items: items.filter((i) => i.section === key),
 })).filter((g) => g.items.length > 0);
 
-// Topic chips, most used first.
-const topicCounts = TOPIC_KEYS.map((k) => ({
+// Topic links, most used first (counted over the whole site).
+const topicLinks = TOPIC_KEYS.map((k) => ({
   key: k,
   label: TOPICS[k][lang],
-  n: items.filter((i) => i.topics.includes(k)).length,
+  n: allItems.filter((i) => i.topics.includes(k)).length,
 }))
   .filter((x) => x.n > 0)
   .sort((a, b) => b.n - a.n);
@@ -45,16 +51,58 @@ const listItems = items
   }));
 ---
 
-<Base lang={lang} listItems={listItems}>
+<Base
+  lang={lang}
+  topic={topic}
+  title={topicLabel ? t.topicTitle(topicLabel) : undefined}
+  description={topicLabel ? t.topicDescription(topicLabel, items.length) : undefined}
+  listItems={listItems}
+>
   <IconSprite used={new Set(items.flatMap((i) => Object.keys(i.links)))} />
-  <header class="masthead wrap">
+  <header class:list={["masthead", "wrap", { "masthead--topic": topic }]}>
     <nav class="topbar" aria-label={lang === "en" ? "Site" : "Կայք"}>
-      <a class="lang-switch" href={pathFor(other)} hreflang={other} lang={other} data-lang-switch>{t.switchTo}</a>
+      {
+        topic && (
+          <a class="wordmark wordmark--small" href={pathFor(lang)} lang="hy" aria-label={t.backHome}>
+            լավ բաներ
+          </a>
+        )
+      }
+      <a class="lang-switch" href={pathFor(other, topic)} hreflang={other} lang={other} data-lang-switch>{t.switchTo}</a>
       <a class="suggest" href={SITE.suggestForm} rel="noopener">{t.suggest}</a>
     </nav>
-    <h1 class="wordmark" lang="hy">լավ բաներ</h1>
-    {t.gloss && <p class="gloss">{t.gloss}</p>}
-    <p class="intro">{t.intro}</p>
+    {
+      topic ? (
+        <>
+          <h1 class="topic-title">#{topicLabel}</h1>
+          <p class="topic-meta">
+            {t.topicCount(items.length)}. <a href={pathFor(lang)}>{t.backHome}</a>
+          </p>
+        </>
+      ) : (
+        <>
+          <h1 class="wordmark" lang="hy">
+            լավ բաներ
+          </h1>
+          {t.gloss && <p class="gloss">{t.gloss}</p>}
+          <p class="intro">{t.intro}</p>
+        </>
+      )
+    }
+    <nav class="topics" aria-label={t.topicsLabel}>
+      {
+        topicLinks.map((x) => (
+          <a
+            class="topic"
+            href={x.key === topic ? pathFor(lang) : pathFor(lang, x.key)}
+            data-topic={x.key}
+            aria-current={x.key === topic ? "page" : undefined}
+          >
+            {x.label}
+          </a>
+        ))
+      }
+    </nav>
   </header>
 
   <div class="filters" data-filters>
@@ -82,6 +130,7 @@ const listItems = items
         {
           groups.map((g) => (
             <a class="chip" href={`#${g.key}`} data-section-chip={g.key}>
+              <span aria-hidden="true">{g.emoji}</span>
               {g.label}
               <span class="count" data-count={g.key}>
                 {g.items.length}
@@ -90,15 +139,6 @@ const listItems = items
           ))
         }
       </nav>
-      <div class="topics js-only" role="group" aria-label={t.topicsLabel} hidden>
-        {
-          topicCounts.map((x) => (
-            <button type="button" class="topic" data-topic={x.key} aria-pressed="false">
-              {x.label}
-            </button>
-          ))
-        }
-      </div>
     </div>
   </div>
 
@@ -108,6 +148,9 @@ const listItems = items
       groups.map((g) => (
         <section class="group" id={g.key} data-group={g.key} aria-labelledby={`h-${g.key}`}>
           <h2 class="group-title" id={`h-${g.key}`}>
+            <span class="group-emoji" aria-hidden="true">
+              {g.emoji}
+            </span>
             {g.label}
           </h2>
           <div class="entries">
@@ -136,8 +179,8 @@ const listItems = items
 </Base>
 
 <script is:inline define:vars={{ showingEn: lang === "en" }}>
-  // Filtering: section x origin x topic x search, all on data attributes of
-  // pre-rendered entries. State lives in the URL (?s=&o=&t=&q=) so filtered views can be shared.
+  // Filtering: section x origin x search, on data attributes of pre-rendered entries.
+  // Topics are separate pages. State lives in the URL (?s=&o=&q=) so filtered views can be shared.
   (() => {
     const $ = (s, el = document) => el.querySelector(s);
     const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
@@ -147,7 +190,7 @@ const listItems = items
     const groups = $$("[data-group]");
     const sectionChips = $$("[data-section-chip]");
     const originBtns = $$("[data-origin]");
-    const topicBtns = $$("[data-topic]");
+    const topicLinks = $$("[data-topic]");
     const search = $("[data-search]");
     const showing = $("[data-showing]");
     const empty = $("[data-empty]");
@@ -156,19 +199,19 @@ const listItems = items
     const state = {
       section: params.get("s") || "",
       origin: params.get("o") || "all",
-      topic: params.get("t") || "",
       q: params.get("q") || "",
     };
     if (location.hash && sectionChips.some((c) => c.dataset.sectionChip === location.hash.slice(1))) {
       state.section = location.hash.slice(1);
     }
+    // A section this page doesn't have (e.g. from an old link) would show nothing: ignore it.
+    if (!sectionChips.some((c) => c.dataset.sectionChip === state.section)) state.section = "";
     search.value = state.q;
 
-    const matches = (e, ignore) => {
+    const matches = (e, ignoreSection) => {
       const d = e.dataset;
-      if (ignore !== "section" && state.section && d.section !== state.section) return false;
+      if (!ignoreSection && state.section && d.section !== state.section) return false;
       if (state.origin !== "all" && (d.armenian === "1") !== (state.origin === "armenian")) return false;
-      if (ignore !== "topic" && state.topic && !d.topics.split(" ").includes(state.topic)) return false;
       const q = state.q.trim().toLowerCase();
       if (q && !d.search.includes(q)) return false;
       return true;
@@ -184,7 +227,7 @@ const listItems = items
 
       // Section counts ignore the section filter itself.
       const counts = {};
-      for (const e of entries) if (matches(e, "section")) counts[e.dataset.section] = (counts[e.dataset.section] || 0) + 1;
+      for (const e of entries) if (matches(e, true)) counts[e.dataset.section] = (counts[e.dataset.section] || 0) + 1;
       for (const c of sectionChips) {
         const key = c.dataset.sectionChip;
         const n = key ? counts[key] || 0 : Object.values(counts).reduce((a, b) => a + b, 0);
@@ -192,16 +235,13 @@ const listItems = items
         c.setAttribute("aria-current", String(state.section === key));
         c.classList.toggle("is-zero", n === 0 && state.section !== key);
       }
-      // Only offer topics that would still match something.
+      // Only offer topics that still appear among the visible entries (the current topic stays).
       const live = new Set();
-      for (const e of entries) if (matches(e, "topic")) e.dataset.topics.split(" ").forEach((x) => x && live.add(x));
-      for (const b of topicBtns) {
-        b.setAttribute("aria-pressed", String(state.topic === b.dataset.topic));
-        b.hidden = !live.has(b.dataset.topic) && state.topic !== b.dataset.topic;
-      }
+      for (const e of entries) if (!e.hidden) e.dataset.topics.split(" ").forEach((x) => x && live.add(x));
+      for (const a of topicLinks) a.hidden = !live.has(a.dataset.topic) && !a.hasAttribute("aria-current");
       for (const b of originBtns) b.setAttribute("aria-pressed", String(state.origin === b.dataset.origin));
 
-      const filtered = state.section || state.origin !== "all" || state.topic || state.q.trim();
+      const filtered = state.section || state.origin !== "all" || state.q.trim();
       showing.textContent = filtered
         ? showingEn
           ? `${shown} of ${entries.length}`
@@ -212,10 +252,12 @@ const listItems = items
       const p = new URLSearchParams();
       if (state.section) p.set("s", state.section);
       if (state.origin !== "all") p.set("o", state.origin);
-      if (state.topic) p.set("t", state.topic);
       if (state.q.trim()) p.set("q", state.q.trim());
       const qs = p.toString();
       history.replaceState(null, "", qs ? `?${qs}` : location.pathname);
+      // Topic links keep the Armenian/International choice, so "Armenian + #math" carries over.
+      const keep = state.origin !== "all" ? `?o=${state.origin}` : "";
+      for (const a of topicLinks) a.href = a.href.split("?")[0] + keep;
     }
 
     sectionChips.forEach((c) =>
@@ -229,15 +271,9 @@ const listItems = items
       }),
     );
     originBtns.forEach((b) => b.addEventListener("click", () => ((state.origin = b.dataset.origin), apply())));
-    topicBtns.forEach((b) =>
-      b.addEventListener("click", () => {
-        state.topic = state.topic === b.dataset.topic ? "" : b.dataset.topic;
-        apply();
-      }),
-    );
     search.addEventListener("input", () => ((state.q = search.value), apply()));
     $("[data-clear]").addEventListener("click", () => {
-      Object.assign(state, { section: "", origin: "all", topic: "", q: "" });
+      Object.assign(state, { section: "", origin: "all", q: "" });
       search.value = "";
       apply();
     });
