@@ -143,6 +143,18 @@ button {
   padding-bottom: 0.14em; /* room for the descenders of լ, բ, ր */
 }
 
+/* Tricolor trail: a letter lights up in its flag color the moment the pointer touches it,
+   then fades back to ink, so a sweep across the word paints red, blue, apricot. */
+.wordmark .wl {
+  display: inline-block;
+  transition: color 1.9s ease-out;
+}
+.wordmark .wl:hover,
+.wordmark .wl.lit {
+  color: var(--c);
+  transition-duration: 0s;
+}
+
 /* Topic pages: a small wordmark in the top bar links home. */
 .masthead--topic .topbar {
   justify-content: flex-start;

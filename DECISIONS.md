@@ -2,6 +2,14 @@
 
 Newest first.
 
+## 9. Wordmark hover: tricolor trail
+
+- **Date / status:** 2026-11-19, active (chosen by Hayk: A3 from round 2, with the color order fixed by him)
+- **Decision:** each letter of the wordmark lights up in a flag color the moment the pointer touches it and fades back to ink over 1.9 s, so a sweep paints the word. Colors go red, blue, apricot by letter, skipping the space: լ red, ա blue, վ apricot, բ red, ա blue, ն apricot, ե red, ր blue. On touch screens a passive touchmove does the same without blocking scroll. Screen readers get the plain text through an sr-only copy.
+- **Why:** Hayk disliked the hearts. Of 16 ideas over two rounds (round 1: still, flowers, swell, tricolor bands, stitched-in, finer stitch, pomegranate; round 2: spotlight, apricot trail, tricolor trail, jam, gleam, plucked string, blossom, double stitch, lanterns) he picked the tricolor trail. My demo counted the space as a letter, which made բ blue; he pointed out it should be red.
+- **Alternatives rejected:** the other 15 (comparison pages generated in the session scratchpad).
+- **What would change this:** it feels gimmicky after a while; W1 (still beads) is the fallback.
+
 ## 8. Logos are downloaded into the repo, not hotlinked
 
 - **Date / status:** 2026-11-19, active (Hayk asked for logos and images)

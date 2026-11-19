@@ -43,6 +43,12 @@ const topicLinks = TOPIC_KEYS.map((k) => ({
   .filter((x) => x.n > 0)
   .sort((a, b) => b.n - a.n);
 
+// Wordmark letters, colored red / blue / apricot in turn, counting letters only (not the space):
+// լ red, ա blue, վ apricot, բ red, ...
+const FLAG = ["var(--flag-red)", "var(--flag-blue)", "var(--flag-apricot)"];
+let letterIndex = 0;
+const wordmark = "լավ բաներ".split(" ").map((word) => [...word].map((ch) => ({ ch, color: FLAG[letterIndex++ % 3] })));
+
 const listItems = items
   .filter((i) => i.section !== "sayings")
   .map((i) => ({
@@ -81,8 +87,18 @@ const listItems = items
         </>
       ) : (
         <>
-          <h1 class="wordmark" lang="hy">
-            լավ բաներ
+          <h1 class="wordmark" lang="hy" data-wordmark>
+            <span class="sr-only">լավ բաներ</span>
+            <span aria-hidden="true">
+              {
+                wordmark.map((word, w) => (
+                  <>
+                    {w > 0 && " "}
+                    {word.map((l) => <span class="wl" style={`--c: ${l.color}`}>{l.ch}</span>)}
+                  </>
+                ))
+              }
+            </span>
           </h1>
           {t.gloss && <p class="gloss">{t.gloss}</p>}
           <p class="intro">{t.intro}</p>
@@ -281,6 +297,23 @@ const listItems = items
     $("[data-lang-switch]").addEventListener("click", (ev) => {
       ev.currentTarget.href = ev.currentTarget.href.split("?")[0] + location.search;
     });
+    // Wordmark paint trail on touch screens (mouse uses CSS :hover). touchmove is passive,
+    // so swiping across the wordmark still scrolls the page.
+    const mark = $("[data-wordmark]");
+    if (mark) {
+      const light = (x, y) => {
+        const el = document.elementFromPoint(x, y);
+        if (!el || !el.classList.contains("wl")) return;
+        el.classList.add("lit");
+        requestAnimationFrame(() => requestAnimationFrame(() => el.classList.remove("lit")));
+      };
+      const onTouch = (ev) => {
+        for (const t of ev.touches) light(t.clientX, t.clientY);
+      };
+      mark.addEventListener("touchstart", onTouch, { passive: true });
+      mark.addEventListener("touchmove", onTouch, { passive: true });
+    }
+
     // "/" focuses search, like on many sites.
     addEventListener("keydown", (ev) => {
       if (ev.key === "/" && document.activeElement !== search) {
