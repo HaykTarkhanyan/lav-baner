@@ -52,6 +52,18 @@ Rules the build checks (it fails with a message if one is broken):
 - If a value contains `: ` (colon + space), wrap it in double quotes, or YAML reads it as a new field.
 - The order of entries in the file is the order on the page.
 
+## Hide or remove an entry
+
+Ids listed in [`src/data/hidden.txt`](src/data/hidden.txt) are hidden everywhere on the site. Easiest way:
+
+```sh
+npm run entries -- music      # find the id (the word is optional)
+npm run hide -- exurb1a       # hide it (several ids at once work too)
+npm run unhide -- exurb1a     # bring it back
+```
+
+Then commit and push as usual. A typo in `hidden.txt` fails the build. To delete an entry for good, remove its block from `items.yaml` (and its logo).
+
 ## Run it locally
 
 Needs Node 22.23 or newer.

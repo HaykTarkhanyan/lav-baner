@@ -1,0 +1,10 @@
+# Entries listed here are hidden everywhere on the site (pages, counts, search, topic pages).
+# One id per line; lines starting with # are ignored.
+#
+#   npm run entries               list every entry with its id (add a word to filter: npm run entries -- music)
+#   npm run hide -- exurb1a       add an id here
+#   npm run unhide -- exurb1a     remove it again
+#
+# Hiding is reversible. To remove an entry for good, delete its block in src/data/items.yaml
+# (and its logo in src/assets/logos/ if it has one).
+# While `npm run dev` is running, restart it after editing this file.

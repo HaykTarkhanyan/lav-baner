@@ -3,6 +3,7 @@ import { file } from "astro/loaders";
 import { z } from "astro/zod";
 import { parse } from "yaml";
 import { LINK_KEYS, SECTION_KEYS, TOPIC_KEYS } from "./taxonomy";
+import { readHiddenIds } from "./hidden";
 
 const url = z.string().url();
 
@@ -14,8 +15,15 @@ const links = z
 
 const items = defineCollection({
   // getCollection() returns entries sorted by id; `order` keeps the order written in the file.
+  // Entries listed in src/data/hidden.txt are dropped here, so they vanish from every page.
+  // (Unknown ids in hidden.txt fail the build: see strictItemsYaml in astro.config.mjs.)
   loader: file("src/data/items.yaml", {
-    parser: (text) => (parse(text) as Record<string, unknown>[]).map((x, i) => ({ ...x, order: i })),
+    parser: (text) => {
+      const hidden = readHiddenIds();
+      return (parse(text) as Record<string, unknown>[])
+        .map((x, i) => ({ ...x, order: i }))
+        .filter((x) => !hidden.has(x.id as string));
+    },
   }),
   schema: z
     .object({

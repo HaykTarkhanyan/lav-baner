@@ -2,6 +2,14 @@
 
 Newest first.
 
+## 10. Hiding entries through a plain text file
+
+- **Date / status:** 2026-11-20, active (Hayk: "an option to easily hide or remove some stuff, it can be a local file, no need for a complicated solution")
+- **Decision:** ids listed in `src/data/hidden.txt` are dropped in the content loader, so they vanish from every page, count, search and topic page. `npm run entries / hide / unhide` (scripts/entries.mjs) list ids and edit the file. An unknown id fails the build.
+- **Why:** one file, reversible, no admin UI. Tested: hiding 2 ids took the page from 77 to 75 entries; a typo ("exurbia") failed the build; unhiding restored the file byte for byte.
+- **Alternatives rejected:** a `hidden: true` field inside items.yaml (means hunting through a 900-line file); a local admin page with checkboxes (needs a server or a copy-paste step, more than asked for).
+- **What would change this:** non-technical co-curators need to hide things without a terminal.
+
 ## 9. Wordmark hover: tricolor trail
 
 - **Date / status:** 2026-11-19, active (chosen by Hayk: A3 from round 2, with the color order fixed by him)

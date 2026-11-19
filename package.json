@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "entries": "node scripts/entries.mjs list",
+    "hide": "node scripts/entries.mjs hide",
+    "unhide": "node scripts/entries.mjs unhide"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.6",
