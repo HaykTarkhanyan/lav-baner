@@ -2,7 +2,7 @@
 #
 # Regular entry:
 #   - id: kebab-case-unique-id
-#     section: learn | film | music | dance | memes | sayings | photography | initiatives | tools
+#     section: learn | film | music | dance | memes | sayings | photography | food | initiatives | tools
 #     armenian: true            # Armenian-made or in Armenian (shows the flag mark)
 #     name: Name in Latin script
 #     name_hy: Անունը հայերեն   # optional
@@ -782,6 +782,19 @@
     instagram: https://www.instagram.com/tigran.madoyan/
     facebook: https://www.facebook.com/tigran.madoyan
     patreon: https://www.patreon.com/TigranMadoyan
+
+# ---------------------------------------------------------------- food
+
+- id: burastan-murabba
+  section: food
+  armenian: true
+  name: Burastan murabba
+  name_hy: Բուրաստան մուրաբա
+  description:
+    en: Armenian murabba (whole fruit preserved in syrup) under the Burastan label, including an unusual pine cone murabba.
+    hy: Հայկական մուրաբա (օշարակի մեջ պահածոյացված ամբողջական մրգեր) «Բուրաստան» ապրանքանիշով, այդ թվում՝ ոչ սովորական սոճու կոնի մուրաբա։
+  links:
+    website: https://4u.am/hy/product/muraba-burastan-koni-2
 
 # ---------------------------------------------------------------- initiatives
 

@@ -16,7 +16,7 @@ A regular entry:
 
 ```yaml
 - id: kurzgesagt                 # unique, lowercase, words joined by -
-  section: learn                 # learn | film | music | dance | memes | sayings | photography | initiatives | tools
+  section: learn                 # learn | film | music | dance | memes | sayings | photography | food | initiatives | tools
   armenian: false                # true if Armenian-made or in Armenian
   name: Kurzgesagt - In a Nutshell
   name_hy: Քուրցգեզագտ           # optional

@@ -13,6 +13,7 @@ export const SECTIONS = {
   memes: { en: "Memes & satire", hy: "Մեմեր և երգիծանք", emoji: "😂" },
   sayings: { en: "Jokes & sayings", hy: "Անեկդոտներ և ասացվածքներ", emoji: "🫏" },
   photography: { en: "Photography", hy: "Լուսանկարչություն", emoji: "📷" },
+  food: { en: "Food", hy: "Ուտելիք", emoji: "🍯" },
   initiatives: { en: "Initiatives", hy: "Նախաձեռնություններ", emoji: "🤝" },
   tools: { en: "Tools & maps", hy: "Գործիքներ և քարտեզներ", emoji: "🧭" },
 } satisfies Record<string, Label & { emoji: string }>;
