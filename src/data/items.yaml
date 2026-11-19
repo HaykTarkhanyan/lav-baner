@@ -704,7 +704,6 @@
   armenian: true
   text: Ուրիշի հարսի տուտուզով փեսուն լավություն անել
   translation: To do the groom a favor with someone else's bride's backside.
-  meaning: To be generous at someone else's expense.
   topics: [proverb]
 
 - id: mati-u-matanu-arank
@@ -712,7 +711,6 @@
   armenian: true
   text: Մտնել մատի ու մատանու արանքը
   translation: To get between the finger and the ring.
-  meaning: To meddle between two people who are very close.
   topics: [proverb]
 
 - id: sev-sirt-vardaguyn-trusik
@@ -743,8 +741,7 @@
   section: sayings
   armenian: true
   text: Թան էլ չէ, փրթած մածուն
-  translation: Not even tan, but curdled matsun.
-  meaning: Neither one thing nor the other. (Tan is a yogurt drink, matsun is yogurt.)
+  translation: Not even tan (a yogurt drink), but curdled matsun (yogurt).
   topics: [proverb]
 
 - id: vaghy-che-myus-ory
