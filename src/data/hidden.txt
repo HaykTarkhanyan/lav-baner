@@ -8,3 +8,8 @@
 # Hiding is reversible. To remove an entry for good, delete its block in src/data/items.yaml
 # (and its logo in src/assets/logos/ if it has one).
 # While `npm run dev` is running, restart it after editing this file.
+krisp-kitchen
+bigstory-podcast
+boxk
+dzi-podcast
+blogfox-chapters

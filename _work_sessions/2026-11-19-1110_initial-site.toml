@@ -1,36 +1,44 @@
-title = "lav-baner: first version of the site"
+title = "lav-baner: first version of the site, logos, topic pages, Telegram curation"
 date = "2026-11-19"
 time = "11:10"
-areas = ["src/", "public/", ".github/workflows/", "docs (README, DECISIONS, DEFERRED_TODO)"]
+areas = ["src/", "public/", "scripts/", ".github/workflows/", "docs (README, DECISIONS, DEFERRED_TODO, CONVENTIONS)"]
 
 done = [
   "Chose the stack with Hayk: Astro 7 + one YAML data file + GitHub Pages; bilingual EN (/) and HY (/hy/) with hreflang; suggestions via the old random site's Google Form",
-  "Sections by kind (learn, film, music, dance, memes, sayings, photography, initiatives, tools) + Armenian/International switch, topic chips, search, URL-synced filter state",
-  "Design: pink tuff / basalt palette, Handjet wordmark (beads -> hearts on hover), Google Sans body; fonts self-hosted and subset (Handjet 11.6 KB)",
-  "Researched links for ~60 items with two Sonnet agents (two batches on one agent), recovered hyperlinks from the weekly_links sheet via xlsx export, pulled the old HaykTarkhanyan/random Quarto site",
-  "77 entries in src/data/items.yaml (31 learn, 16 sayings, 8 tools, ...), schema-validated against src/taxonomy.ts",
-  "Build fails loudly on YAML syntax errors (custom hook) and on schema errors (Zod); both verified with deliberately broken files",
-  "Icon sprite, favicon (beaded l-b), og.png social card, sitemap with language alternates, JSON-LD ItemList",
+  "Sections by kind + Armenian/International switch, search, URL-synced filters; later a Food section (Burastan murabba)",
+  "Design: pink tuff / basalt palette, Handjet wordmark, Google Sans body; fonts self-hosted and subset (Handjet 11.6 KB)",
+  "Wordmark: hearts removed; Hayk picked A3 'tricolor trail' (letters light up red/blue/apricot, counting letters only) from 16 ideas over two comparison rounds",
+  "Researched links with two Sonnet agents, recovered weekly_links hyperlinks via xlsx export, pulled the old HaykTarkhanyan/random Quarto site",
+  "Logos: 71 self-hosted WebP logos (channel avatars, site icons, posters); entries without one show their section emoji",
+  "Every hashtag opens a static topic page (/topics/<key>/, /hy/topics/<key>/); 66 pages in total",
+  "src/data/hidden.txt + npm run entries/hide/unhide to hide entries without deleting; unknown ids fail the build",
+  "Reviewed the Telegram Saved Messages export (6,404 messages, 746 YouTube links, 969 photos) into 119 candidates; Hayk ticked what to keep on a curation page (_private/curate.html)",
+  "Applied his choices: 5 hidden (Krisp Kitchen, BigStory, BOXK, Dzi, BlogFox), 2 updates (Areg Instagram, Qarakusi YouTube), 45 new entries incl. 17 sayings; 123 entries, 118 visible",
+  "Build fails loudly on YAML syntax errors (custom hook), schema errors (Zod) and unknown hidden ids; all verified with deliberately broken input",
 ]
 pending = [
   "Cherry-pick from the weekly_links sheet (videos, memes, songs, Kargin quotes, 12 wallpapers for Photography)",
-  "Hayk to review the proverb meanings I was unsure of (tutuz, finger and ring, tan/matsun) and all Armenian descriptions",
+  "Meanings for 3 old proverbs (tutuz, finger and ring, tan/matsun) and 2 new ones (sari pes tgha, ... tan chi) are left out until Hayk gives them",
+  "Image-only finds need a source link: Sargis Zakaryan taxi memes, Armenian actors in Hollywood posters, 'Ancient Armenians choosing church sites', Gutan festival",
+  "Burastan: only a 4u.am shop listing exists (Cloudflare-blocked); a better link (Instagram/shop) from Hayk would help",
   "Hell News Telegram/Instagram not found; ML EVN Telegram is invite-only",
 ]
 next = [
-  "Check the first GitHub Actions deploy and the live URL",
   "Submit the sitemap in Google Search Console",
-  "Cherry-pick session for weekly_links",
+  "Cherry-pick session for weekly_links (the curation page approach worked well; reuse it)",
 ]
 files = [
-  "astro.config.mjs", "src/taxonomy.ts", "src/content.config.ts", "src/i18n.ts", "src/data/items.yaml",
+  "astro.config.mjs", "src/taxonomy.ts", "src/content.config.ts", "src/hidden.ts", "src/i18n.ts", "src/data/items.yaml", "src/data/hidden.txt",
   "src/layouts/Base.astro", "src/components/Home.astro", "src/components/Entry.astro", "src/components/IconSprite.astro",
-  "src/styles/global.css", "public/favicon.svg", "public/og.png", ".github/workflows/deploy.yml",
+  "src/pages/topics/[topic].astro", "src/pages/hy/topics/[topic].astro", "src/styles/global.css", "src/assets/logos/",
+  "scripts/entries.mjs", "public/favicon.svg", "public/og.png", ".github/workflows/deploy.yml",
 ]
-commits = []
+commits = ["28e720a", "39495bb", "57c872b", "f58cf15", "6d004e1", "4c00ec9", "(this commit: Telegram curation)"]
 notes = """
 Agents found several wrong assumptions in the brief: mathteam.notion.so does not resolve (it is .notion.site); @UgheghAmprop is
 a dead handle (the real one is Armenian-script); @nobelprizes is an Armenian-language channel, not the official Nobel one;
 the YouTube link given for Menq enq mer sarery was actually Voske tsliky; the Puss in Boots cell in the sheet pointed to a
 pirate site (replaced with Wikipedia/IMDb). exurb1a was kept as asked, though there are public abuse allegations against him.
+The Telegram export contains scans of passports, cards and residence documents; nothing from them was copied anywhere.
+armchords.com has a broken TLS certificate, so it is linked over http.
 """

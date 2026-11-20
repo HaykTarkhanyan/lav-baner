@@ -58,6 +58,35 @@
   topics: [math, education]
   links:
     website: https://qarakusi.am/
+    youtube: https://www.youtube.com/@qarakusi
+
+- id: khan-academy-hy
+  section: learn
+  armenian: true
+  name: Khan Academy in Armenian
+  name_hy: Խան Ակադեմիա
+  description:
+    en: Khan Academy's free lessons in Armenian, mostly math, with videos and practice exercises.
+    hy: Խան Ակադեմիայի անվճար դասերը հայերենով, հիմնականում մաթեմատիկա՝ վիդեոներով և վարժություններով։
+  topics:
+  - math
+  - education
+  - free
+  links:
+    website: https://hy.khanacademy.org/
+
+- id: profound-academy
+  section: learn
+  armenian: true
+  name: Profound Academy
+  description:
+    en: A platform for hands-on programming courses with auto-graded labs and exams, including an Armenian Python course.
+    hy: Ծրագրավորման գործնական դասընթացների հարթակ՝ ավտոմատ ստուգվող լաբորատորներով և քննություններով, այդ թվում՝ հայերեն Python դասընթաց։
+  topics:
+  - programming
+  - course
+  links:
+    website: https://profound.academy/
 
 - id: ml-evn
   section: learn
@@ -416,6 +445,68 @@
     youtube: https://www.youtube.com/@exurb1a
     patreon: https://www.patreon.com/exurb1r
 
+- id: artem-kirsanov
+  section: learn
+  name: Artem Kirsanov
+  description:
+    en: 'Beautifully animated videos on computational neuroscience and machine learning: how brains and models learn.'
+    hy: Գեղեցիկ անիմացված վիդեոներ հաշվողական նեյրոգիտության և մեքենայական ուսուցման մասին. ինչպես են սովորում ուղեղն ու մոդելները։
+  topics:
+  - science
+  - ai
+  links:
+    youtube: https://www.youtube.com/@ArtemKirsanov
+
+- id: distill
+  section: learn
+  name: Distill
+  description:
+    en: Interactive, carefully explained articles on machine learning research. The journal has been on hiatus since 2021; the archive stays up.
+    hy: Մեքենայական ուսուցման հետազոտությունների ինտերակտիվ, խնամքով բացատրված հոդվածներ։ Ամսագիրը 2021-ից նոր հոդվածներ չի հրապարակում, բայց արխիվը հասանելի է։
+  topics:
+  - ai
+  - science
+  links:
+    website: https://distill.pub/
+
+- id: nicky-case
+  section: learn
+  name: Nicky Case's explorables
+  description:
+    en: Playable explanations of game theory, trust, anxiety and how systems work, like The Evolution of Trust.
+    hy: Խաղալով սովորելու բացատրություններ խաղերի տեսության, վստահության, անհանգստության և համակարգերի մասին, օրինակ՝ The Evolution of Trust։
+  topics:
+  - ideas
+  - psychology
+  - free
+  links:
+    website: https://ncase.me/
+
+- id: huggingface-learn
+  section: learn
+  name: Hugging Face Learn
+  description:
+    en: Free courses from Hugging Face on LLMs, agents, diffusion models and more, with notebooks.
+    hy: Hugging Face-ի անվճար դասընթացներ LLM-ների, ագենտների, դիֆուզիոն մոդելների և այլնի մասին՝ նոթբուքներով։
+  topics:
+  - ai
+  - course
+  - free
+  links:
+    website: https://huggingface.co/learn
+
+- id: our-world-in-data
+  section: learn
+  name: Our World in Data
+  description:
+    en: Research and charts on the world's big problems (health, poverty, climate, happiness), all free and open.
+    hy: Հետազոտություններ և գրաֆիկներ աշխարհի մեծ խնդիրների մասին (առողջություն, աղքատություն, կլիմա, երջանկություն), բոլորը անվճար և բաց։
+  topics:
+  - science
+  - free
+  links:
+    website: https://ourworldindata.org/
+
 # ---------------------------------------------------------------- film
 
 - id: we-and-our-mountains
@@ -504,6 +595,18 @@
   links:
     youtube: https://www.youtube.com/playlist?list=PL8sh2VJuXs-t-FQZ4OkeQdBCFqwJWCNQP
 
+- id: armchords
+  section: music
+  armenian: true
+  name: ArmChords
+  description:
+    en: Lyrics with guitar chords for a large catalogue of Armenian songs.
+    hy: Հայկական երգերի մեծ ընտրանի՝ բառերով և կիթառի ակորդներով։
+  topics:
+  - culture
+  links:
+    website: http://armchords.com/
+
 # ---------------------------------------------------------------- dance
 
 - id: karin
@@ -548,6 +651,7 @@
   topics: [folk, culture]
   links:
     facebook: https://www.facebook.com/AregDance/
+    instagram: https://instagram.com/areg_folk_dance
     youtube: https://www.youtube.com/@aregfolkdancetroupe1462
 
 - id: armenian-folk-in-motion
@@ -561,6 +665,21 @@
   links:
     website: https://sites.google.com/view/armfolkinmotion/context-and-goals
     instagram: https://www.instagram.com/arm.folk.in.motion/
+
+- id: aripari
+  section: dance
+  armenian: true
+  name: AriPari
+  name_hy: Արի Պարի
+  description:
+    en: Armenian folk dance and song evenings in Yerevan, open to everyone, with a wiki of dances.
+    hy: Հայկական ժողովրդական պարի և երգի երեկոներ Երևանում՝ բոլորի համար, և պարերի վիքի։
+  topics:
+  - folk
+  - community
+  links:
+    website: https://aripari.am/
+    telegram: https://t.me/ariparenq
 
 # ---------------------------------------------------------------- memes & satire
 
@@ -628,6 +747,20 @@
     facebook: https://www.facebook.com/dzi.podcast
     x: https://x.com/DziPodcast
 
+- id: kargin-haghordum
+  section: memes
+  armenian: true
+  name: Kargin Haghordum
+  name_hy: Կարգին հաղորդում
+  description:
+    en: The cult Armenian sketch comedy show, with hundreds of sketches on its official YouTube channel.
+    hy: Պաշտամունքային հայկական սքեչ-կատակերգական հաղորդումը, որի հարյուրավոր սքեչները պաշտոնական YouTube ալիքում են։
+  topics:
+  - kargin
+  - comedy
+  links:
+    youtube: https://www.youtube.com/@KarginTV
+
 - id: kargin-archive
   section: memes
   armenian: true
@@ -640,6 +773,104 @@
   links:
     website: https://karginhaghordum.am
     telegram: https://t.me/KarginSearchBot
+
+- id: chtesutyun
+  section: memes
+  armenian: true
+  name: chTesutyun
+  name_hy: չՏեսություն
+  description:
+    en: An encyclopedia of Armenian memes and internet folklore, with over 200 articles.
+    hy: Հայկական մեմերի և համացանցային բանահյուսության հանրագիտարան՝ ավելի քան 200 հոդվածով։
+  topics:
+  - comedy
+  - language
+  links:
+    website: https://xn--y9aa8b7a3an.xn--y9a3aq/
+
+- id: philomena-cunk
+  section: memes
+  name: Philomena Cunk
+  description:
+    en: Diane Morgan's gloriously clueless presenter, asking real experts absurd questions in Cunk on Earth and Cunk on Britain.
+    hy: Դայան Մորգանի կերպարը՝ անտեղյակ հաղորդավարուհի, որը լուրջ դեմքով անհեթեթ հարցեր է տալիս իսկական մասնագետներին (Cunk on Earth, Cunk on Britain)։
+  topics:
+  - comedy
+  - history
+  links:
+    youtube: https://www.youtube.com/watch?v=6_ot_UftS0I
+    wikipedia: https://en.wikipedia.org/wiki/Philomena_Cunk
+
+- id: casually-explained
+  section: memes
+  name: Casually Explained
+  description:
+    en: Deadpan stick-figure explainers about life, dating and everything else.
+    hy: Չոր հումորով, փայտիկ-մարդուկներով բացատրական վիդեոներ կյանքի, հարաբերությունների և ամեն ինչի մասին։
+  topics:
+  - comedy
+  - animation
+  links:
+    youtube: https://www.youtube.com/@CasuallyExplained
+
+- id: natural-habitat-shorts
+  section: memes
+  name: Natural Habitat Shorts
+  description:
+    en: Nature documentary clips with absurd, deadpan voiceovers.
+    hy: Բնության մասին վավերագրական կադրեր՝ աբսուրդ, չոր հումորով մեկնաբանությամբ։
+  topics:
+  - comedy
+  links:
+    youtube: https://www.youtube.com/@NaturalHabitatShorts
+
+- id: adrian-gray
+  section: memes
+  name: 'Adrian Gray: Forgotten History'
+  description:
+    en: Short sketches imagining famous moments from history, from Freud to Freddie Mercury.
+    hy: Կարճ սքեչներ պատմության հայտնի պահերի մասին՝ Ֆրոյդից մինչև Ֆրեդի Մերքյուրի։
+  topics:
+  - comedy
+  - history
+  links:
+    youtube: https://www.youtube.com/@AdrianGrayComedy
+
+- id: jimmy-carr
+  section: memes
+  name: Jimmy Carr
+  description:
+    en: British comedian known for dark one-liners and quick crowd work.
+    hy: Բրիտանացի կատակերգու՝ հայտնի սև հումորով կարճ կատակներով և հանդիսատեսի հետ արագ փոխհրաձգությամբ։
+  topics:
+  - comedy
+  links:
+    youtube: https://www.youtube.com/@jimmycarr
+
+- id: xkcd
+  section: memes
+  name: xkcd
+  description:
+    en: Randall Munroe's webcomic of romance, sarcasm, math and language.
+    hy: Ռենդալ Մանրոյի վեբկոմիքսը ռոմանտիկայի, սարկազմի, մաթեմատիկայի և լեզվի մասին։
+  topics:
+  - comedy
+  - math
+  links:
+    website: https://xkcd.com/
+
+- id: cyanide-and-happiness
+  section: memes
+  name: Cyanide & Happiness
+  description:
+    en: Dark, absurd webcomics and animated shorts.
+    hy: Սև, աբսուրդ հումորով վեբկոմիքսներ և անիմացիոն կարճամետրաժներ։
+  topics:
+  - comedy
+  - animation
+  links:
+    website: https://explosm.net/
+    youtube: https://www.youtube.com/@ExplosmEntertainment
 
 # ---------------------------------------------------------------- jokes & sayings
 
@@ -767,6 +998,158 @@
   translation: 'The difference between falling from the 10th floor and the 1st. From the 10th: "Aaaaah! Thud." From the 1st: "Thud. Aaaaah!"'
   topics: [joke]
 
+- id: sery-lobu-jur-chi
+  section: sayings
+  armenian: true
+  text: Սերը լոբու ջուր չի, կքամվի կգնա
+  translation: Love isn't bean water, that you drain and it's gone.
+  meaning: Love doesn't just go away.
+  topics:
+  - proverb
+
+- id: popok-tnkoghy
+  section: sayings
+  armenian: true
+  text: Պոպոկ տնկողը պոպոկ չի ուտում
+  translation: The one who plants a walnut tree doesn't eat its walnuts.
+  meaning: We plant for those who come after us.
+  topics:
+  - proverb
+
+- id: kyachalin-sanr
+  section: sayings
+  armenian: true
+  text: Քյաչալին ինչ ա պետք, մի հատ սանր
+  translation: What does a bald man need? A comb.
+  meaning: Said of a gift or offer that is no use to the person who gets it.
+  topics:
+  - proverb
+
+- id: shnic-maz-pokel
+  section: sayings
+  armenian: true
+  text: Շնից մազ պոկելն էլ ա քյար
+  translation: Even plucking a hair from a dog is a gain.
+  meaning: Get whatever little you can out of a hopeless case.
+  topics:
+  - proverb
+
+- id: sery-atarin
+  section: sayings
+  armenian: true
+  text: Սերը աթարին էլ ա կպնում
+  translation: Love sticks even to dried dung.
+  meaning: Love is blind.
+  topics:
+  - proverb
+
+- id: eghunq-unes
+  section: sayings
+  armenian: true
+  text: Եղունք ունես, գլուխդ քորի
+  translation: If you have nails, scratch your own head.
+  meaning: Don't wait for others to do it for you.
+  topics:
+  - proverb
+
+- id: gety-chtrac-hop
+  section: sayings
+  armenian: true
+  text: Գետը չթռած հոպ մի ասա
+  translation: Don't say 'hop' before you've jumped the river.
+  meaning: Don't count your chickens before they hatch.
+  topics:
+  - proverb
+
+- id: dzu-goghacoghy
+  section: sayings
+  armenian: true
+  text: Ձու գողացողը ձի էլ կգողանա
+  translation: He who steals an egg will steal a horse too.
+  meaning: Small dishonesty grows.
+  topics:
+  - proverb
+
+- id: amenakarch-chanaparh
+  section: sayings
+  armenian: true
+  text: Ամենակարճ ճանապարհը նա ա, որը գիտես
+  translation: The shortest road is the one you know.
+  meaning: Stick with what you know.
+  topics:
+  - proverb
+
+- id: nver-dziu-atamner
+  section: sayings
+  armenian: true
+  text: Նվեր տված ձիու ատամներին չեն նայում
+  translation: You don't look at the teeth of a gifted horse.
+  meaning: Same as in English.
+  topics:
+  - proverb
+
+- id: dzri-uqsusn
+  section: sayings
+  armenian: true
+  text: Ձրի, ուքսուսն էլ ա քաղցր
+  translation: When it's free, even vinegar is sweet.
+  meaning: People love anything free.
+  topics:
+  - proverb
+
+- id: es-agha-du-agha
+  section: sayings
+  armenian: true
+  text: Ես աղա, դու աղա, բա մեր աղունն ո՞վ աղա
+  translation: I'm a master, you're a master, so who will grind our flour?
+  meaning: 'Wordplay: աղա means both master and grind. Everyone wants to be the boss.'
+  topics:
+  - proverb
+  - language
+
+- id: sari-pes-tgha
+  section: sayings
+  armenian: true
+  text: Սարի պես տղա էր, դառավ ռագատկի քար
+  translation: He was a lad like a mountain, now he's a slingshot pebble.
+  topics:
+  - proverb
+
+- id: tan-chi-amen-mardu
+  section: sayings
+  armenian: true
+  text: … թան չի, ամեն մարդու բան չի
+  translation: … it's not tan, it's not for everyone.
+  topics:
+  - proverb
+
+- id: izolent
+  section: sayings
+  armenian: true
+  text: Բոլոր պրոբլեմները, որ իզոլենտով չեն լուծվում, լուծվում են շատ իզոլենտով
+  translation: Every problem duct tape can't fix is fixed by more duct tape.
+  topics:
+  - joke
+
+- id: srti-karol
+  section: sayings
+  armenian: true
+  text: Սրտի կառոլը միակ կառոլն ա, որ բեղեր չունի
+  translation: The king of hearts is the only king without a mustache.
+  meaning: A true fact about playing cards.
+  topics:
+  - joke
+
+- id: dzer-khndrel
+  section: sayings
+  armenian: true
+  text: Գնում ենք ձեռ խնդրելու, հարսի հերն ասում ա՝ ինչի՞ ձեր տղեն ձեռ չունի, ասում են՝ ունի, հոգնել ա ուղղակի
+  translation: We go to ask for her hand; the bride's father asks why our son has no hand; they say he has one, he's just tired.
+  meaning: A joke on ձեռք խնդրել, to ask for someone's hand in marriage.
+  topics:
+  - joke
+  - language
+
 # ---------------------------------------------------------------- photography
 
 - id: tigran-madoyan
@@ -782,6 +1165,18 @@
     instagram: https://www.instagram.com/tigran.madoyan/
     facebook: https://www.facebook.com/tigran.madoyan
     patreon: https://www.patreon.com/TigranMadoyan
+
+- id: unsplash-armenia
+  section: photography
+  name: Armenia on Unsplash
+  description:
+    en: A collection of free photos of Armenia on Unsplash.
+    hy: Հայաստանի անվճար լուսանկարների հավաքածու Unsplash-ում։
+  topics:
+  - free
+  - culture
+  links:
+    website: https://unsplash.com/collections/CHBCtdPtruo/armenia
 
 # ---------------------------------------------------------------- food
 
@@ -855,6 +1250,74 @@
   links:
     website: https://hfc.am/en/
     facebook: https://www.facebook.com/hfcarmenia
+
+- id: rearmenia
+  section: initiatives
+  armenian: true
+  name: reArmenia
+  description:
+    en: 'A collaboration platform for Armenia: fund, join or lend your expertise to community projects.'
+    hy: Համագործակցության հարթակ Հայաստանի համար՝ ֆինանսավորեք, միացեք կամ ձեր փորձով օգնեք համայնքային նախագծերին։
+  topics:
+  - charity
+  - community
+  links:
+    website: https://rearmenia.com/en
+
+- id: armoss
+  section: initiatives
+  armenian: true
+  name: ArmOSS
+  description:
+    en: Open-source projects by Armenian developers and organizations on GitHub, in one searchable place.
+    hy: Հայ ծրագրավորողների և կազմակերպությունների բաց կոդով նախագծերը GitHub-ում՝ մեկ որոնելի տեղում։
+  topics:
+  - programming
+  - community
+  links:
+    website: https://armoss.org/
+
+- id: pyyerevan
+  section: initiatives
+  armenian: true
+  name: PyYerevan
+  description:
+    en: 'Armenia''s Python community: meetups and talks, with a Telegram group and recorded talks on YouTube.'
+    hy: Հայաստանի Python համայնքը՝ հանդիպումներ և ելույթներ, Telegram խմբով և YouTube-ում ձայնագրված ելույթներով։
+  topics:
+  - programming
+  - community
+  - yerevan
+  links:
+    telegram: https://t.me/pyerevan
+    youtube: https://www.youtube.com/channel/UCts4I-AIqZsyBMvVe4-j6Uw
+
+- id: trichq
+  section: initiatives
+  armenian: true
+  name: Trichq hiking club
+  description:
+    en: A travel and hiking club organizing group hikes across Armenia, like the Khustup trip.
+    hy: Ճամփորդական և արշավային ակումբ, որը կազմակերպում է խմբային արշավներ Հայաստանով մեկ, օրինակ՝ դեպի Խուստուփ։
+  topics:
+  - outdoors
+  - community
+  links:
+    telegram: https://t.me/trichqhikingclub
+
+- id: kharuyk
+  section: initiatives
+  armenian: true
+  name: Kharuyk hiking club
+  name_hy: Խարույկ
+  description:
+    en: A hiking club with regular group hikes in Armenia.
+    hy: Արշավային ակումբ՝ Հայաստանում կանոնավոր խմբային արշավներով։
+  topics:
+  - outdoors
+  - community
+  links:
+    instagram: https://instagram.com/kharuyk_hiking_club
 
 # ---------------------------------------------------------------- tools & maps
 
@@ -945,3 +1408,48 @@
     hy: Ստեղծում է YouTube վիդեոյի գլուխներ՝ ժամային նշումներով։
   links:
     website: https://blogfox.ai/youtube-chapter-generator
+
+- id: the-useless-web
+  section: tools
+  name: The Useless Web
+  description:
+    en: Press the button, land on a random useless website. Surprisingly hard to stop.
+    hy: Սեղմեք կոճակը և հայտնվեք պատահական անօգուտ կայքում։ Կանգ առնելը զարմանալիորեն դժվար է։
+  topics:
+  - free
+  links:
+    website: https://theuselessweb.com/
+
+- id: find-the-invisible-cow
+  section: tools
+  name: Find the Invisible Cow
+  description:
+    en: Find a cow hidden on a blank page, guided only by sound. That's it.
+    hy: Գտեք դատարկ էջում թաքնված կովը՝ միայն ձայնով կողմնորոշվելով։ Վերջ։
+  topics:
+  - free
+  links:
+    website: https://findtheinvisiblecow.com/
+
+- id: musipedia-tapping
+  section: tools
+  name: 'Musipedia: query by tapping'
+  description:
+    en: Tap the rhythm of a melody on your keyboard and it tries to find the song.
+    hy: Ստեղնաշարով թակեք մեղեդու ռիթմը, և կայքը կփորձի գտնել երգը։
+  topics:
+  - free
+  links:
+    website: https://musipedia.org/query_by_tapping.html
+
+- id: 100000-stars
+  section: tools
+  name: 100,000 Stars
+  description:
+    en: Fly through the 100,000 nearest stars of the Milky Way, in your browser.
+    hy: Թռչեք Ծիր Կաթինի մոտակա 100 000 աստղերի միջով՝ ձեր բրաուզերում։
+  topics:
+  - science
+  - free
+  links:
+    website: https://stars.chromeexperiments.com/

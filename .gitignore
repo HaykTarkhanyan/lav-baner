@@ -21,3 +21,6 @@ npm-debug.log*
 .idea/
 .DS_Store
 Thumbs.db
+
+# Private working files (e.g. candidates built from personal Telegram exports). Never commit.
+_private/

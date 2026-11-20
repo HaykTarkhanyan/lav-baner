@@ -46,6 +46,7 @@ export const TOPICS = {
   regions: { en: "regions", hy: "մարզեր" },
   culture: { en: "culture", hy: "մշակույթ" },
   maps: { en: "maps", hy: "քարտեզներ" },
+  outdoors: { en: "outdoors", hy: "արշավներ" },
   yerevan: { en: "Yerevan", hy: "Երևան" },
   design: { en: "design", hy: "դիզայն" },
   psychology: { en: "psychology", hy: "հոգեբանություն" },
