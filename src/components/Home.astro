@@ -4,8 +4,9 @@ import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
 import Entry from "./Entry.astro";
 import IconSprite from "./IconSprite.astro";
-import { SECTIONS, SECTION_KEYS, TOPICS, TOPIC_KEYS, LINK_KEYS, type Lang, type TopicKey } from "../taxonomy";
+import { SECTIONS, SECTION_CHIPS, SECTION_KEYS, TOPICS, TOPIC_KEYS, LINK_KEYS, type Lang, type TopicKey } from "../taxonomy";
 import { SITE, UI, pathFor } from "../i18n";
+import { readPickIds } from "../hidden";
 
 interface Props {
   lang: Lang;
@@ -27,21 +28,25 @@ if (allItems.length === 0) {
 const items = topic ? allItems.filter((i) => i.topics.includes(topic)) : allItems;
 const topicLabel = topic ? TOPICS[topic][lang] : undefined;
 
+// The "Start here" row, home page only. Ids are checked at build time (astro.config.mjs).
+const picks = topic ? [] : readPickIds().map((id) => allItems.find((i) => i.id === id)!);
+
 const groups = SECTION_KEYS.map((key) => ({
   key,
   label: SECTIONS[key][lang],
+  chip: SECTION_CHIPS[key]?.[lang] ?? SECTIONS[key][lang],
   emoji: SECTIONS[key].emoji,
   items: items.filter((i) => i.section === key),
 })).filter((g) => g.items.length > 0);
 
-// Topic links, most used first (counted over the whole site).
+// Topic links, most used first (counted over the whole site), the current topic always first.
 const topicLinks = TOPIC_KEYS.map((k) => ({
   key: k,
   label: TOPICS[k][lang],
   n: allItems.filter((i) => i.topics.includes(k)).length,
 }))
   .filter((x) => x.n > 0)
-  .sort((a, b) => b.n - a.n);
+  .sort((a, b) => Number(b.key === topic) - Number(a.key === topic) || b.n - a.n);
 
 // Wordmark letters, colored red / blue / apricot in turn, counting letters only (not the space):
 // լ red, ա blue, վ apricot, բ red, ...
@@ -64,6 +69,7 @@ const listItems = items
   description={topicLabel ? t.topicDescription(topicLabel, items.length) : undefined}
   listItems={listItems}
 >
+  <a class="skip-link" href="#main">{t.skipToList}</a>
   <IconSprite used={new Set(items.flatMap((i) => Object.keys(i.links)))} />
   <header class:list={["masthead", "wrap", { "masthead--topic": topic }]}>
     <nav class="topbar" aria-label={lang === "en" ? "Site" : "Կայք"}>
@@ -105,7 +111,7 @@ const listItems = items
         </>
       )
     }
-    <nav class="topics" aria-label={t.topicsLabel}>
+    <nav class="topics" aria-label={t.topicsLabel} data-topics>
       {
         topicLinks.map((x) => (
           <a
@@ -118,28 +124,37 @@ const listItems = items
           </a>
         ))
       }
+      <button type="button" class="topic-more" data-topics-more data-more={t.moreTopics} data-less={t.fewerTopics} hidden
+      ></button>
     </nav>
   </header>
 
-  <div class="filters" data-filters>
-    <div class="wrap filters-inner">
-      <div class="filters-row js-only" hidden>
-        <div class="origin" role="group" aria-label={t.origin.all}>
-          <button type="button" data-origin="all" aria-pressed="true">{t.origin.all}</button>
-          <button type="button" data-origin="armenian" aria-pressed="false">
-            <span class="flag" aria-hidden="true"></span>{t.origin.armenian}
-          </button>
-          <button type="button" data-origin="international" aria-pressed="false">{t.origin.international}</button>
-        </div>
-        <label class="search">
-          <span class="sr-only">{t.searchLabel}</span>
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
-          </svg>
-          <input type="search" data-search placeholder={t.searchPlaceholder(items.length)} autocomplete="off" />
-        </label>
-      </div>
-      <nav class="sections" aria-label={lang === "en" ? "Sections" : "Բաժիններ"}>
+  <div class="controls wrap js-only" data-controls hidden>
+    <div class="origin" role="group" aria-label={t.origin.all}>
+      <button type="button" data-origin="all" aria-pressed="true">{t.origin.all}</button>
+      <button type="button" data-origin="armenian" aria-pressed="false">
+        <span class="flag" aria-hidden="true"></span>{t.origin.armenian}
+      </button>
+      <button type="button" data-origin="international" aria-pressed="false">{t.origin.international}</button>
+    </div>
+    <label class="search">
+      <span class="sr-only">{t.searchLabel}</span>
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
+      </svg>
+      <input type="search" data-search-input placeholder={t.searchPlaceholder(items.length)} autocomplete="off" />
+    </label>
+    <button type="button" class="chip surprise" data-surprise><span aria-hidden="true">🎲</span> {t.surprise}</button>
+  </div>
+
+  <div class="sectionbar" data-sectionbar>
+    <div class="sectionbar-inner">
+      <button type="button" class="bar-search js-only" data-bar-search aria-label={t.searchLabel} title={t.searchLabel} hidden>
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
+        </svg>
+      </button>
+      <nav class="sections" aria-label={lang === "en" ? "Sections" : "Բաժիններ"} data-sections>
         <a class="chip" href="#main" data-section-chip="" aria-current="true">
           {t.allSections}<span class="count" data-count="">{items.length}</span>
         </a>
@@ -147,7 +162,7 @@ const listItems = items
           groups.map((g) => (
             <a class="chip" href={`#${g.key}`} data-section-chip={g.key}>
               <span aria-hidden="true">{g.emoji}</span>
-              {g.label}
+              {g.chip}
               <span class="count" data-count={g.key}>
                 {g.items.length}
               </span>
@@ -158,8 +173,31 @@ const listItems = items
     </div>
   </div>
 
-  <main class="wrap" id="main">
-    <p class="showing js-only" data-showing aria-live="polite" hidden></p>
+  <main
+    class="wrap"
+    id="main"
+    data-collapsing={topic ? undefined : ""}
+    data-show-all-label={t.showAll}
+    data-show-fewer-label={t.showFewer}
+  >
+    <p class="showing js-only" data-showing data-template={t.showing} aria-live="polite" hidden></p>
+    {
+      picks.length > 0 && (
+        <section class="group group--picks" data-picks aria-labelledby="h-picks">
+          <h2 class="group-title" id="h-picks">
+            <span class="group-emoji" aria-hidden="true">
+              ⭐
+            </span>
+            {t.startHere}
+          </h2>
+          <div class="entries">
+            {picks.map((item) => (
+              <Entry item={item} lang={lang} />
+            ))}
+          </div>
+        </section>
+      )
+    }
     {
       groups.map((g) => (
         <section class="group" id={g.key} data-group={g.key} aria-labelledby={`h-${g.key}`}>
@@ -174,6 +212,7 @@ const listItems = items
               <Entry item={item} lang={lang} />
             ))}
           </div>
+          <button type="button" class="chip show-all" data-show-all hidden />
         </section>
       ))
     }
@@ -186,6 +225,18 @@ const listItems = items
     </div>
   </main>
 
+  <dialog class="surprise-dialog" data-surprise-dialog aria-label={t.surprise}>
+    <div class="surprise-body">
+      <div data-surprise-card></div>
+      <div class="surprise-actions">
+        <button type="button" class="chip" data-surprise-close>{t.close}</button>
+        <button type="button" class="chip chip--solid" data-surprise-next autofocus>
+          <span aria-hidden="true">🎲</span> {t.another}
+        </button>
+      </div>
+    </div>
+  </dialog>
+
   <footer class="footer wrap">
     <p>
       {t.footer} <a href={SITE.suggestForm} rel="noopener">{t.suggest}</a>.
@@ -194,134 +245,287 @@ const listItems = items
   </footer>
 </Base>
 
-<script is:inline define:vars={{ showingEn: lang === "en" }}>
+<script>
   // Filtering: section x origin x search, on data attributes of pre-rendered entries.
   // Topics are separate pages. State lives in the URL (?s=&o=&q=) so filtered views can be shared.
-  (() => {
-    const $ = (s, el = document) => el.querySelector(s);
-    const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
-    $$(".js-only").forEach((el) => (el.hidden = false));
+  import { fold, normalize } from "../search";
 
-    const entries = $$(".entry");
-    const groups = $$("[data-group]");
-    const sectionChips = $$("[data-section-chip]");
-    const originBtns = $$("[data-origin]");
-    const topicLinks = $$("[data-topic]");
-    const search = $("[data-search]");
-    const showing = $("[data-showing]");
-    const empty = $("[data-empty]");
+  const COLLAPSED = 6; // cards per section on the home page before "Show all"
 
-    const params = new URLSearchParams(location.search);
-    const state = {
-      section: params.get("s") || "",
-      origin: params.get("o") || "all",
-      q: params.get("q") || "",
-    };
-    if (location.hash && sectionChips.some((c) => c.dataset.sectionChip === location.hash.slice(1))) {
-      state.section = location.hash.slice(1);
+  const $ = (s: string, el: ParentNode = document): any => el.querySelector(s);
+  const $$ = (s: string, el: ParentNode = document): any[] => Array.from(el.querySelectorAll(s));
+  const fill = (template: string, vars: Record<string, number>) =>
+    template.replace(/\{(\w+)\}/g, (_, key) => String(vars[key]));
+  $$(".js-only").forEach((el) => (el.hidden = false));
+
+  const main = $("#main");
+  const collapsing = main.hasAttribute("data-collapsing");
+  const entries = $$("[data-group] .entry");
+  const groups = $$("[data-group]");
+  const picks = $("[data-picks]");
+  const controls = $("[data-controls]");
+  const sectionBar = $("[data-sectionbar]");
+  const sectionNav = $("[data-sections]");
+  const sectionChips = $$("[data-section-chip]");
+  const originBtns = $$("[data-origin]");
+  const topicsNav = $("[data-topics]");
+  const topicsMore = $("[data-topics-more]");
+  const topicLinks = $$("[data-topic]");
+  const originAwareLinks = $$("[data-topic], .entry-topics a");
+  const search = $("[data-search-input]");
+  const showing = $("[data-showing]");
+  const empty = $("[data-empty]");
+  const surpriseBtn = $("[data-surprise]");
+  const dialog = $("[data-surprise-dialog]");
+
+  const params = new URLSearchParams(location.search);
+  const state = {
+    section: params.get("s") || "",
+    origin: params.get("o") || "all",
+    q: params.get("q") || "",
+  };
+  if (location.hash && sectionChips.some((c) => c.dataset.sectionChip === location.hash.slice(1))) {
+    state.section = location.hash.slice(1);
+  }
+  // A section this page doesn't have (e.g. from an old link) would show nothing: ignore it.
+  if (!sectionChips.some((c) => c.dataset.sectionChip === state.section)) state.section = "";
+  search.value = state.q;
+
+  const openedGroups = new Set<string>();
+  let topicsOpen = false;
+
+  // Every word must match, in any order. Armenian names also match when typed in Latin letters.
+  const queryWords = () => normalize(state.q).split(/\s+/).filter(Boolean);
+  const wordHit = (d: DOMStringMap, word: string) =>
+    d.search!.includes(word) || ` ${d.latin ?? ""}`.includes(` ${fold(word)}`);
+
+  const matches = (e: HTMLElement, words: string[], ignoreSection = false) => {
+    const d = e.dataset;
+    if (!ignoreSection && state.section && d.section !== state.section) return false;
+    if (state.origin !== "all" && (d.armenian === "1") !== (state.origin === "armenian")) return false;
+    return words.every((w) => wordHit(d, w));
+  };
+
+  // Keep the hashtags on one line: hide from the end until the "+N more" button fits.
+  function fitTopics() {
+    topicLinks.forEach((a) => a.classList.remove("is-over"));
+    topicsNav.classList.toggle("is-open", topicsOpen);
+    const visible = topicLinks.filter((a) => !a.hidden);
+    topicsMore.hidden = visible.length === 0;
+    topicsMore.setAttribute("aria-expanded", String(topicsOpen));
+    if (topicsOpen) {
+      topicsMore.textContent = topicsMore.dataset.less;
+      return;
     }
-    // A section this page doesn't have (e.g. from an old link) would show nothing: ignore it.
-    if (!sectionChips.some((c) => c.dataset.sectionChip === state.section)) state.section = "";
-    search.value = state.q;
+    topicsMore.textContent = fill(topicsMore.dataset.more, { n: visible.length });
+    const firstLine = visible[0]?.offsetTop ?? 0;
+    let over = 0;
+    for (let i = visible.length - 1; i > 0 && topicsMore.offsetTop > firstLine + 4; i--) {
+      visible[i].classList.add("is-over");
+      over++;
+    }
+    if (over === 0) topicsMore.hidden = true;
+    else topicsMore.textContent = fill(topicsMore.dataset.more, { n: over });
+  }
 
-    const matches = (e, ignoreSection) => {
-      const d = e.dataset;
-      if (!ignoreSection && state.section && d.section !== state.section) return false;
-      if (state.origin !== "all" && (d.armenian === "1") !== (state.origin === "armenian")) return false;
-      const q = state.q.trim().toLowerCase();
-      if (q && !d.search.includes(q)) return false;
-      return true;
-    };
-
-    function apply() {
-      let shown = 0;
-      for (const e of entries) {
-        e.hidden = !matches(e);
-        if (!e.hidden) shown++;
-      }
-      for (const g of groups) g.hidden = !$$(".entry", g).some((e) => !e.hidden);
-
-      // Section counts ignore the section filter itself.
-      const counts = {};
-      for (const e of entries) if (matches(e, true)) counts[e.dataset.section] = (counts[e.dataset.section] || 0) + 1;
-      for (const c of sectionChips) {
-        const key = c.dataset.sectionChip;
-        const n = key ? counts[key] || 0 : Object.values(counts).reduce((a, b) => a + b, 0);
-        $(".count", c).textContent = n;
-        c.setAttribute("aria-current", String(state.section === key));
-        c.classList.toggle("is-zero", n === 0 && state.section !== key);
-      }
-      // Only offer topics that still appear among the visible entries (the current topic stays).
-      const live = new Set();
-      for (const e of entries) if (!e.hidden) e.dataset.topics.split(" ").forEach((x) => x && live.add(x));
-      for (const a of topicLinks) a.hidden = !live.has(a.dataset.topic) && !a.hasAttribute("aria-current");
-      for (const b of originBtns) b.setAttribute("aria-pressed", String(state.origin === b.dataset.origin));
-
-      const filtered = state.section || state.origin !== "all" || state.q.trim();
-      showing.textContent = filtered
-        ? showingEn
-          ? `${shown} of ${entries.length}`
-          : `${shown}՝ ${entries.length}-ից`
-        : "";
-      empty.hidden = shown > 0;
-
-      const p = new URLSearchParams();
-      if (state.section) p.set("s", state.section);
-      if (state.origin !== "all") p.set("o", state.origin);
-      if (state.q.trim()) p.set("q", state.q.trim());
-      const qs = p.toString();
-      history.replaceState(null, "", qs ? `?${qs}` : location.pathname);
-      // Topic links keep the Armenian/International choice, so "Armenian + #math" carries over.
-      const keep = state.origin !== "all" ? `?o=${state.origin}` : "";
-      for (const a of topicLinks) a.href = a.href.split("?")[0] + keep;
+  function apply() {
+    const words = queryWords();
+    let shown = 0;
+    for (const e of entries) {
+      e.hidden = !matches(e, words);
+      if (!e.hidden) shown++;
     }
 
-    sectionChips.forEach((c) =>
-      c.addEventListener("click", (ev) => {
-        ev.preventDefault();
-        const key = c.dataset.sectionChip;
-        state.section = state.section === key ? "" : key;
-        apply();
-        const top = $("#main").getBoundingClientRect().top + scrollY - $("[data-filters]").offsetHeight - 8;
-        if (scrollY > top) scrollTo({ top });
-      }),
-    );
-    originBtns.forEach((b) => b.addEventListener("click", () => ((state.origin = b.dataset.origin), apply())));
-    search.addEventListener("input", () => ((state.q = search.value), apply()));
-    $("[data-clear]").addEventListener("click", () => {
-      Object.assign(state, { section: "", origin: "all", q: "" });
-      search.value = "";
+    // Long sections show their first cards until opened, on the unfiltered home page only.
+    const clipping = collapsing && !state.section && words.length === 0;
+    for (const g of groups) {
+      const visible = $$(".entry", g).filter((e) => !e.hidden);
+      g.hidden = visible.length === 0;
+      const canClip = clipping && visible.length > COLLAPSED + 1;
+      const isOpen = openedGroups.has(g.dataset.group);
+      visible.forEach((e, i) => e.classList.toggle("is-clipped", canClip && !isOpen && i >= COLLAPSED));
+      const btn = $("[data-show-all]", g);
+      btn.hidden = !canClip;
+      btn.setAttribute("aria-expanded", String(isOpen));
+      btn.textContent = isOpen ? main.dataset.showFewerLabel : fill(main.dataset.showAllLabel, { n: visible.length });
+    }
+
+    // Section counts ignore the section filter itself. Sections with no results disappear.
+    const counts: Record<string, number> = {};
+    for (const e of entries) if (matches(e, words, true)) counts[e.dataset.section] = (counts[e.dataset.section] || 0) + 1;
+    for (const c of sectionChips) {
+      const key = c.dataset.sectionChip;
+      const n = key ? counts[key] || 0 : Object.values(counts).reduce((a, b) => a + b, 0);
+      $(".count", c).textContent = n;
+      c.setAttribute("aria-current", String(state.section === key));
+      c.hidden = Boolean(key) && n === 0 && state.section !== key;
+    }
+    // Only offer topics that still appear among the visible entries (the current topic stays).
+    const live = new Set<string>();
+    for (const e of entries) if (!e.hidden) e.dataset.topics.split(" ").forEach((x: string) => x && live.add(x));
+    for (const a of topicLinks) a.hidden = !live.has(a.dataset.topic) && !a.hasAttribute("aria-current");
+    for (const b of originBtns) b.setAttribute("aria-pressed", String(state.origin === b.dataset.origin));
+
+    const filtered = Boolean(state.section || state.origin !== "all" || words.length);
+    showing.textContent = filtered ? fill(showing.dataset.template, { shown, total: entries.length }) : "";
+    empty.hidden = shown > 0;
+    surpriseBtn.disabled = shown === 0;
+    if (picks) picks.hidden = filtered;
+
+    const p = new URLSearchParams();
+    if (state.section) p.set("s", state.section);
+    if (state.origin !== "all") p.set("o", state.origin);
+    if (state.q.trim()) p.set("q", state.q.trim());
+    const qs = p.toString();
+    history.replaceState(null, "", qs ? `?${qs}` : location.pathname);
+    // Every hashtag keeps the Armenian/International choice, so "Armenian + #math" carries over.
+    const keep = state.origin !== "all" ? `?o=${state.origin}` : "";
+    for (const a of originAwareLinks) a.href = a.href.split("?")[0] + keep;
+
+    fitTopics();
+    updateSpy();
+  }
+
+  // Highlight the section being read in the bar, and keep its chip in view.
+  let hereKey = "";
+  function updateSpy() {
+    const line = sectionBar.getBoundingClientRect().bottom + 48;
+    let here = "";
+    if (!state.section) {
+      for (const g of groups) if (!g.hidden && g.getBoundingClientRect().top <= line) here = g.dataset.group;
+    }
+    if (here === hereKey) return;
+    hereKey = here;
+    for (const c of sectionChips) c.classList.toggle("is-here", Boolean(here) && c.dataset.sectionChip === here);
+    const chip = sectionChips.find((c) => c.dataset.sectionChip === here);
+    if (chip && sectionNav.scrollWidth > sectionNav.clientWidth) {
+      const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      sectionNav.scrollTo({
+        left: chip.offsetLeft - (sectionNav.clientWidth - chip.offsetWidth) / 2,
+        behavior: calm ? "auto" : "smooth",
+      });
+    }
+  }
+  let spyQueued = false;
+  addEventListener(
+    "scroll",
+    () => {
+      if (spyQueued) return;
+      spyQueued = true;
+      requestAnimationFrame(() => {
+        spyQueued = false;
+        updateSpy();
+      });
+    },
+    { passive: true },
+  );
+
+  // Fade the edge of the section row wherever more chips are hidden.
+  const updateFade = () => {
+    const { scrollLeft, clientWidth, scrollWidth } = sectionNav;
+    sectionNav.classList.toggle("fade-left", scrollLeft > 2);
+    sectionNav.classList.toggle("fade-right", scrollLeft + clientWidth < scrollWidth - 2);
+  };
+  sectionNav.addEventListener("scroll", updateFade, { passive: true });
+  new ResizeObserver(updateFade).observe(sectionNav);
+
+  // The search icon appears in the bar once the search box has scrolled away.
+  new IntersectionObserver(([row]) => sectionBar.classList.toggle("is-stuck", !row.isIntersecting)).observe(controls);
+  $("[data-bar-search]").addEventListener("click", () => {
+    controls.scrollIntoView({ block: "start" });
+    search.focus({ preventScroll: true });
+  });
+
+  sectionChips.forEach((c) =>
+    c.addEventListener("click", (ev: Event) => {
+      ev.preventDefault();
+      const key = c.dataset.sectionChip;
+      state.section = state.section === key ? "" : key;
       apply();
-    });
-    // Keep the current filters when switching language.
-    $("[data-lang-switch]").addEventListener("click", (ev) => {
-      ev.currentTarget.href = ev.currentTarget.href.split("?")[0] + location.search;
-    });
-    // Wordmark paint trail on touch screens (mouse uses CSS :hover). touchmove is passive,
-    // so swiping across the wordmark still scrolls the page.
-    const mark = $("[data-wordmark]");
-    if (mark) {
-      const light = (x, y) => {
-        const el = document.elementFromPoint(x, y);
-        if (!el || !el.classList.contains("wl")) return;
-        el.classList.add("lit");
-        requestAnimationFrame(() => requestAnimationFrame(() => el.classList.remove("lit")));
-      };
-      const onTouch = (ev) => {
-        for (const t of ev.touches) light(t.clientX, t.clientY);
-      };
-      mark.addEventListener("touchstart", onTouch, { passive: true });
-      mark.addEventListener("touchmove", onTouch, { passive: true });
-    }
-
-    // "/" focuses search, like on many sites.
-    addEventListener("keydown", (ev) => {
-      if (ev.key === "/" && document.activeElement !== search) {
-        ev.preventDefault();
-        search.focus();
-      }
-    });
-
+      const top = main.getBoundingClientRect().top + scrollY - sectionBar.offsetHeight - 8;
+      if (scrollY > top) scrollTo({ top });
+    }),
+  );
+  groups.forEach((g) =>
+    $("[data-show-all]", g).addEventListener("click", () => {
+      const key = g.dataset.group;
+      const wasOpen = openedGroups.has(key);
+      if (wasOpen) openedGroups.delete(key);
+      else openedGroups.add(key);
+      apply();
+      if (wasOpen && g.getBoundingClientRect().top < 0) g.scrollIntoView();
+    }),
+  );
+  originBtns.forEach((b) => b.addEventListener("click", () => ((state.origin = b.dataset.origin), apply())));
+  search.addEventListener("input", () => ((state.q = search.value), apply()));
+  $("[data-clear]").addEventListener("click", () => {
+    Object.assign(state, { section: "", origin: "all", q: "" });
+    search.value = "";
     apply();
-  })();
+  });
+  topicsMore.addEventListener("click", () => {
+    topicsOpen = !topicsOpen;
+    fitTopics();
+  });
+  let topicsWidth = 0;
+  new ResizeObserver(() => {
+    if (topicsNav.clientWidth === topicsWidth) return;
+    topicsWidth = topicsNav.clientWidth;
+    fitTopics();
+  }).observe(topicsNav);
+  document.fonts.ready.then(fitTopics);
+
+  // Keep the current filters when switching language.
+  $("[data-lang-switch]").addEventListener("click", (ev: Event) => {
+    const link = ev.currentTarget as HTMLAnchorElement;
+    link.href = link.href.split("?")[0] + location.search;
+  });
+
+  // "Surprise me": a random entry from what the current filters show, as a copy in a dialog,
+  // so the page behind keeps its place.
+  let lastPick: HTMLElement | null = null;
+  function surprise() {
+    const pool = entries.filter((e) => !e.hidden);
+    const options = pool.length > 1 ? pool.filter((e) => e !== lastPick) : pool;
+    lastPick = options[Math.floor(Math.random() * options.length)];
+    const card = lastPick!.cloneNode(true) as HTMLElement;
+    card.classList.remove("is-clipped");
+    card.querySelectorAll("img").forEach((img) => (img.loading = "eager"));
+    $("[data-surprise-card]").replaceChildren(card);
+    if (!dialog.open) dialog.showModal();
+  }
+  surpriseBtn.addEventListener("click", surprise);
+  $("[data-surprise-next]").addEventListener("click", surprise);
+  $("[data-surprise-close]").addEventListener("click", () => dialog.close());
+  dialog.addEventListener("click", (ev: Event) => {
+    if (ev.target === dialog) dialog.close();
+  });
+
+  // Wordmark paint trail on touch screens (mouse uses CSS :hover). touchmove is passive,
+  // so swiping across the wordmark still scrolls the page.
+  const mark = $("[data-wordmark]");
+  if (mark) {
+    const light = (x: number, y: number) => {
+      const el = document.elementFromPoint(x, y);
+      if (!el || !el.classList.contains("wl")) return;
+      el.classList.add("lit");
+      requestAnimationFrame(() => requestAnimationFrame(() => el.classList.remove("lit")));
+    };
+    const onTouch = (ev: TouchEvent) => {
+      for (const touch of ev.touches) light(touch.clientX, touch.clientY);
+    };
+    mark.addEventListener("touchstart", onTouch, { passive: true });
+    mark.addEventListener("touchmove", onTouch, { passive: true });
+  }
+
+  // "/" focuses search, like on many sites.
+  addEventListener("keydown", (ev) => {
+    if (ev.key !== "/" || ev.ctrlKey || ev.metaKey || ev.altKey || dialog.open) return;
+    if (document.activeElement === search) return;
+    ev.preventDefault();
+    search.focus();
+  });
+
+  apply();
+  main.classList.add("is-ready");
 </script>

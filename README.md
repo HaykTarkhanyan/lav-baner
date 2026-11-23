@@ -64,6 +64,14 @@ npm run unhide -- exurb1a     # bring it back
 
 Then commit and push as usual. A typo in `hidden.txt` fails the build. To delete an entry for good, remove its block from `items.yaml` (and its logo).
 
+## Choose the "Start here" row
+
+Put entry ids in [`src/data/picks.txt`](src/data/picks.txt), one per line, in the order you want them. They appear at the top of the home page. While the file has no ids, the row stays hidden. An unknown or hidden id fails the build.
+
+## Help search find an entry
+
+Add other names to an entry with `aliases: [3b1b]`. Synonyms for a whole section or topic go in `SEARCH_ALIASES` in [`src/taxonomy.ts`](src/taxonomy.ts).
+
 ## Run it locally
 
 Needs Node 22.23 or newer.

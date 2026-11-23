@@ -88,3 +88,31 @@ export type LinkKey = keyof typeof LINK_TYPES;
 export const SECTION_KEYS = Object.keys(SECTIONS) as [SectionKey, ...SectionKey[]];
 export const TOPIC_KEYS = Object.keys(TOPICS) as [TopicKey, ...TopicKey[]];
 export const LINK_KEYS = Object.keys(LINK_TYPES) as [LinkKey, ...LinkKey[]];
+
+// Shorter names for the section bar, which has to fit on one line.
+export const SECTION_CHIPS: Partial<Record<SectionKey, Label>> = {
+  memes: { en: "Memes", hy: "Մեմեր" },
+  sayings: { en: "Sayings", hy: "Ասացվածքներ" },
+  photography: { en: "Photos", hy: "Լուսանկարներ" },
+  initiatives: { en: "Initiatives", hy: "Նախաձեռնություններ" },
+  tools: { en: "Tools", hy: "Գործիքներ" },
+};
+
+// Other words search should accept for a section or topic.
+export const SEARCH_ALIASES: Partial<Record<SectionKey | TopicKey, string>> = {
+  film: "movie movies cinema կինո",
+  music: "song songs երգ երգեր",
+  dance: "dancing",
+  memes: "meme funny",
+  photography: "photo photos ֆոտո",
+  food: "jam",
+  initiatives: "ngo nonprofit",
+  tools: "app apps",
+  ai: "artificial intelligence machine learning ml",
+  math: "mathematics maths",
+  programming: "coding code",
+  podcast: "podcasts",
+  course: "courses",
+  lectures: "lecture",
+  joke: "anekdot",
+};

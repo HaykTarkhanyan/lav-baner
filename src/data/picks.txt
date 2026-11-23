@@ -1,0 +1,2 @@
+# The "Start here" row at the top of the home page: one entry id per line, in display order.
+# The row stays hidden while this list is empty. Find ids with: npm run entries -- <word>

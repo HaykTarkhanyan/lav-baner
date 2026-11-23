@@ -2,8 +2,9 @@
 import type { CollectionEntry } from "astro:content";
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import { LINK_KEYS, LINK_TYPES, SECTIONS, TOPICS, type Lang, type LinkKey } from "../taxonomy";
+import { LINK_KEYS, LINK_TYPES, SEARCH_ALIASES, SECTIONS, TOPICS, type Lang, type LinkKey } from "../taxonomy";
 import { UI, pathFor } from "../i18n";
+import { latinize, normalize } from "../search";
 
 interface Props {
   item: CollectionEntry<"items">["data"];
@@ -33,19 +34,26 @@ const altName = lang === "hy" ? (item.name_hy ? item.name : undefined) : item.na
 const description = item.description?.[lang];
 
 // Everything a visitor might type into search, in both languages.
-const searchText = [
-  item.name,
-  item.name_hy,
-  item.description?.en,
-  item.description?.hy,
-  item.text,
-  item.translation,
-  item.meaning,
-  ...item.topics.flatMap((k) => [TOPICS[k].en, TOPICS[k].hy]),
-]
-  .filter(Boolean)
-  .join(" ")
-  .toLowerCase();
+const searchText = normalize(
+  [
+    item.name,
+    item.name_hy,
+    ...item.aliases,
+    item.description?.en,
+    item.description?.hy,
+    item.text,
+    item.translation,
+    item.meaning,
+    SECTIONS[item.section].en,
+    SECTIONS[item.section].hy,
+    SEARCH_ALIASES[item.section],
+    ...item.topics.flatMap((k) => [TOPICS[k].en, TOPICS[k].hy, SEARCH_ALIASES[k]]),
+  ]
+    .filter(Boolean)
+    .join(" "),
+);
+// The Armenian name or saying in loose Latin letters, so "menq enq" finds Մենք ենք.
+const latinText = latinize([item.name_hy, item.text].filter(Boolean).join(" "));
 ---
 
 <article
@@ -54,6 +62,7 @@ const searchText = [
   data-armenian={item.armenian ? "1" : "0"}
   data-topics={item.topics.join(" ")}
   data-search={searchText}
+  data-latin={latinText}
 >
   {
     isSaying ? (

@@ -14,13 +14,22 @@ const strictItemsYaml = {
     "astro:build:start": () => {
       const items = parse(readFileSync("src/data/items.yaml", "utf-8"));
       const ids = new Set(items.map((x) => x.id));
-      const hidden = readFileSync("src/data/hidden.txt", "utf-8")
-        .split(/\r?\n/)
-        .map((l) => l.trim())
-        .filter((l) => l && !l.startsWith("#"));
-      const unknown = hidden.filter((id) => !ids.has(id));
-      if (unknown.length > 0) {
-        throw new Error(`src/data/hidden.txt lists ids that are not in items.yaml: ${unknown.join(", ")}`);
+      const readIds = (path) =>
+        readFileSync(path, "utf-8")
+          .split(/\r?\n/)
+          .map((l) => l.trim())
+          .filter((l) => l && !l.startsWith("#"));
+      const hidden = readIds("src/data/hidden.txt");
+      const picks = readIds("src/data/picks.txt");
+      for (const [path, list] of [["hidden.txt", hidden], ["picks.txt", picks]]) {
+        const unknown = list.filter((id) => !ids.has(id));
+        if (unknown.length > 0) {
+          throw new Error(`src/data/${path} lists ids that are not in items.yaml: ${unknown.join(", ")}`);
+        }
+      }
+      const hiddenPicks = picks.filter((id) => hidden.includes(id));
+      if (hiddenPicks.length > 0) {
+        throw new Error(`src/data/picks.txt lists hidden entries: ${hiddenPicks.join(", ")}`);
       }
     },
   },

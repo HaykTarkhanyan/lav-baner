@@ -16,6 +16,7 @@ done = [
   "Applied his choices: 5 hidden (Krisp Kitchen, BigStory, BOXK, Dzi, BlogFox), 2 updates (Areg Instagram, Qarakusi YouTube), 45 new entries incl. 17 sayings; 123 entries, 118 visible",
   "Build fails loudly on YAML syntax errors (custom hook), schema errors (Zod) and unknown hidden ids; all verified with deliberately broken input",
   "2026-11-23: added Strong Mind (Hzor Mitq) and Awesome Nature Armenia; offered 96 researched ideas on _private/suggestions.html; added Hayk's 16 picks plus Cleo Abram; new 'news' topic; 142 entries, 137 visible",
+  "2026-11-23: UX pass U1-U14: forgiving search (src/search.ts), collapsed sections, one slim sticky bar with section highlight, hashtags on one line, clickable logos, skip link, bigger tap targets, Surprise me dialog, visited links dimmed, Start here row (src/data/picks.txt, empty until Hayk picks), 12 new logos. Phone page 38 to 17.5 screens",
 ]
 pending = [
   "Cherry-pick from the weekly_links sheet (videos, memes, songs, Kargin quotes, 12 wallpapers for Photography)",
@@ -23,7 +24,8 @@ pending = [
   "Image-only finds need a source link: Sargis Zakaryan taxi memes, Armenian actors in Hollywood posters, 'Ancient Armenians choosing church sites', Gutan festival",
   "Burastan: only a 4u.am shop listing exists (Cloudflare-blocked); a better link (Instagram/shop) from Hayk would help",
   "Hell News Telegram/Instagram not found; ML EVN Telegram is invite-only",
-  "No logo yet for Robert Sahakyants and Armenian Wikisource: Wikimedia's image CDN answered 429 on 2026-11-23, retry another day",
+  "Hayk chooses 6-8 entries for the Start here row (src/data/picks.txt)",
+  "9 entries still show the section emoji; the list and reasons are in DEFERRED_TODO.md",
 ]
 next = [
   "Submit the sitemap in Google Search Console",
@@ -35,7 +37,7 @@ files = [
   "src/pages/topics/[topic].astro", "src/pages/hy/topics/[topic].astro", "src/styles/global.css", "src/assets/logos/",
   "scripts/entries.mjs", "public/favicon.svg", "public/og.png", ".github/workflows/deploy.yml",
 ]
-commits = ["28e720a", "39495bb", "57c872b", "f58cf15", "6d004e1", "4c00ec9", "6c8f599", "2ce620e", "(this commit: 17 new entries)"]
+commits = ["28e720a", "39495bb", "57c872b", "f58cf15", "6d004e1", "4c00ec9", "6c8f599", "2ce620e", "06bce26", "(this commit: UX pass U1-U14)"]
 notes = """
 Agents found several wrong assumptions in the brief: mathteam.notion.so does not resolve (it is .notion.site); @UgheghAmprop is
 a dead handle (the real one is Armenian-script); @nobelprizes is an Armenian-language channel, not the official Nobel one;

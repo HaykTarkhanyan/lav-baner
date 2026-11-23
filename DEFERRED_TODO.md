@@ -1,5 +1,7 @@
 # Deferred
 
+- **"Start here" picks (U10):** the row is built and hidden. Hayk will choose 6-8 entries; they go in `src/data/picks.txt`.
+- **9 entries still show the section emoji (2026-11-23):** `we-and-our-mountains` (no poster on any Wikipedia, IMDb blocked), `burastan-murabba` and `musipedia-tapping` (Cloudflare block), `kharuyk` (Instagram needs a login), `chtesutyun` (site has no image), `ashot-nakashyan-webinars`, `armenian-dialects`, `armenian-bands-list`, `yerevan-street-names` (only generic platform logos). An image from Hayk would fix any of them: save it as `src/assets/logos/<id>.webp`.
 
 - **Proverb meanings to get from Hayk** (my guesses were taken off the live site on 2026-11-19; add a `meaning:` line to each in `items.yaml`):
   - `urishi-harsi-tutuzov` Ուրիշի հարսի տուտուզով փեսուն լավություն անել (my guess was "to be generous at someone else's expense")

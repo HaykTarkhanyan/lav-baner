@@ -34,6 +34,8 @@ const items = defineCollection({
       // Regular entries: name (+ Armenian name) and a description in both languages.
       name: z.string().optional(),
       name_hy: z.string().optional(),
+      // Other names search should find it by, e.g. [3b1b].
+      aliases: z.array(z.string()).default([]),
       description: z.object({ en: z.string(), hy: z.string() }).optional(),
       // Sayings: the original text, a literal English translation, and the meaning.
       text: z.string().optional(),

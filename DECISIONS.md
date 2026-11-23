@@ -2,6 +2,30 @@
 
 Newest first.
 
+## 13. "Start here" row from a plain text file
+
+- **Date / status:** 2026-11-23, active (Hayk chose the feature and will choose the entries later)
+- **Decision:** ids in `src/data/picks.txt` appear, in file order, in a "Start here" row at the top of the home page. An empty file means no row. The row disappears while any filter is active. Unknown or hidden ids fail the build.
+- **Why:** with 137 entries a first-time visitor has no starting point. Same one-file pattern as `hidden.txt`. Tested: an unknown id and a hidden id each exit the build with 1; three sample ids rendered, hid during search and came back.
+- **Alternatives rejected:** a `pick: true` field in items.yaml (order would follow the file, and picks would be scattered over 1,000+ lines); an automatic "most popular" row (the site has no analytics, and the curator's taste is the point).
+- **What would change this:** picks need to differ per language.
+
+## 12. Search tolerates Armenian spelling variants and Latin typing
+
+- **Date / status:** 2026-11-23, active
+- **Decision:** `src/search.ts` is shared by the build and the browser. It treats և, եւ and եվ as the same, drops emphasis marks, matches every word in any order, and matches Armenian names and sayings typed in Latin letters (menq/menk, voske/oske). Sections and topics have a few synonyms in `SEARCH_ALIASES`, entries can have `aliases`.
+- **Why:** measured on the live site before the change: `երևան` 8 results, `երեւան` 0, `menq enq` 0, `mathematics` 0, `3b1b` 0. After: 8, 8, 1, 9, 1.
+- **Alternatives rejected:** a fuzzy-search library such as Fuse.js (extra weight for 137 entries, and it does not know Armenian transliteration); folding all text instead of only Armenian names and sayings (`math` would start matching unrelated words).
+- **What would change this:** people still get empty results for reasonable queries, or typo tolerance becomes a real need.
+
+## 11. Home page: collapsed sections, one slim sticky bar, hashtags on one line
+
+- **Date / status:** 2026-11-23, active (Hayk approved the 14-point UX list U1-U14)
+- **Decision:** on the unfiltered home page each section shows 6 cards plus "Show all N". All entries stay in the HTML for search engines. Only the section chips stay sticky, with a search icon once the search box has scrolled away, and the chip of the section being read is highlighted. Hashtags fit on one line with "+N more". "Surprise me" shows a random entry from the current filters in a dialog. Replaces the phone-only "filters scroll away" rule from the earlier layout.
+- **Why:** measured before and after. Phone page 32,440 px (38 screens) to about 14,800 px (17.5). Cards on first load 137 to 49. First card on a 900 px screen from 891 px to 742 px. Sticky bar 145 px to 45 px (23% to 7% of a 640 px tall window), and phones now have one at all.
+- **Alternatives rejected:** pagination or infinite scroll (breaks Ctrl+F habits and adds state); removing cards from the HTML until opened (loses SEO); a horizontally scrolling chip row on desktop (a mouse cannot swipe it, so wide screens wrap instead).
+- **What would change this:** visitors rarely open "Show all", or a section outgrows the pattern and needs subsections.
+
 ## 10. Hiding entries through a plain text file
 
 - **Date / status:** 2026-11-20, active (Hayk: "an option to easily hide or remove some stuff, it can be a local file, no need for a complicated solution")
