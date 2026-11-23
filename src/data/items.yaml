@@ -26,7 +26,7 @@
   name: "Metric Academy: Python, math and ML course"
   description:
     en: Free Armenian-language course in Python, the math behind machine learning, and machine learning itself, from the basics to neural networks and LLMs. Lectures run live on Zoom and are recorded on YouTube; materials and homework are on the site.
-    hy: Անվճար հայալեզու դասընթաց Python-ի, մեքենայական ուսուցման մաթեմատիկայի և հենց մեքենայական ուսուցման մասին՝ հիմունքներից մինչև նեյրոնային ցանցեր և LLM-ներ։ Դասերն անցնում են Zoom-ով և ձայնագրվում YouTube-ում, նյութերն ու տնայինները կայքում են։
+    hy: Անվճար հայալեզու դասընթաց Python-ի, մեքենայական ուսուցման մաթեմատիկայի և հենց մեքենայական ուսուցման մասին՝ հիմունքներից մինչև նեյրոնային ցանցեր և LLM-ներ։ Դասերն անցնում են Zoom-ով, տեսագրությունները YouTube-ում են, իսկ նյութերն ու տնայինները՝ կայքում։
   topics: [programming, math, ai, course, free]
   links:
     website: https://hayktarkhanyan.github.io/python_math_ml_course/
@@ -81,7 +81,7 @@
   name: Profound Academy
   description:
     en: A platform for hands-on programming courses with auto-graded labs and exams, including an Armenian Python course.
-    hy: Ծրագրավորման գործնական դասընթացների հարթակ՝ ավտոմատ ստուգվող լաբորատորներով և քննություններով, այդ թվում՝ հայերեն Python դասընթաց։
+    hy: Ծրագրավորման գործնական դասընթացների հարթակ՝ ավտոմատ ստուգվող լաբորատոր աշխատանքներով և քննություններով, այդ թվում՝ հայերեն Python դասընթաց։
   topics:
   - programming
   - course
@@ -109,7 +109,7 @@
   name_hy: Բանական
   description:
     en: Veritasium videos narrated in Armenian, plus a few other science lectures and talks.
-    hy: Veritasium-ի վիդեոները հայերեն ձայնագրությամբ, նաև մի քանի այլ գիտական դասախոսություններ և ելույթներ։
+    hy: Veritasium-ի վիդեոները հայերեն կրկնօրինակմամբ, նաև մի քանի այլ գիտական դասախոսություններ և ելույթներ։
   topics: [science, in-armenian]
   links:
     youtube: https://www.youtube.com/@banakan.science
@@ -161,7 +161,7 @@
   name_hy: Հետաքրքիրը հայերենով
   description:
     en: General-interest explainers in Armenian about history, nature, discoveries and world events.
-    hy: Ընդհանուր հետաքրքրության բացատրական վիդեոներ հայերենով՝ պատմության, բնության, հայտնագործությունների և աշխարհի իրադարձությունների մասին։
+    hy: Բացատրական վիդեոներ հայերենով՝ պատմության, բնության, հայտնագործությունների և աշխարհի իրադարձությունների մասին։
   topics: [history, science, in-armenian]
   links:
     youtube: https://www.youtube.com/@interestinginArmenian
@@ -175,7 +175,7 @@
   name_hy: 3blue1brown հայերեն
   description:
     en: Armenian versions of 3Blue1Brown's linear algebra series. A young channel, two videos so far.
-    hy: 3Blue1Brown-ի գծային հանրահաշվի շարքի հայերեն տարբերակները։ Նոր ալիք է, առայժմ երկու վիդեո։
+    hy: 3Blue1Brown-ի գծային հանրահաշվի շարքի հայերեն տարբերակները։ Նոր ալիք է, առայժմ երկու վիդեո ունի։
   topics: [math, in-armenian]
   links:
     youtube: https://www.youtube.com/@3blue1brown12
@@ -437,7 +437,7 @@
   name: Dwarkesh Podcast
   description:
     en: Deeply researched long interviews with AI researchers, scientists and historians.
-    hy: Խորապես նախապատրաստված երկար հարցազրույցներ ԱԲ հետազոտողների, գիտնականների և պատմաբանների հետ։
+    hy: Մանրակրկիտ նախապատրաստված երկար հարցազրույցներ ԱԲ հետազոտողների, գիտնականների և պատմաբանների հետ։
   topics: [ai, podcast, ideas]
   links:
     website: https://www.dwarkesh.com/
@@ -524,7 +524,7 @@
   name: Nicky Case's explorables
   description:
     en: Playable explanations of game theory, trust, anxiety and how systems work, like The Evolution of Trust.
-    hy: Խաղալով սովորելու բացատրություններ խաղերի տեսության, վստահության, անհանգստության և համակարգերի մասին, օրինակ՝ The Evolution of Trust։
+    hy: Ինտերակտիվ խաղ-բացատրություններ խաղերի տեսության, վստահության, անհանգստության և համակարգերի մասին, օրինակ՝ The Evolution of Trust։
   topics:
   - ideas
   - psychology
@@ -550,7 +550,7 @@
   name: Our World in Data
   description:
     en: Research and charts on the world's big problems (health, poverty, climate, happiness), all free and open.
-    hy: Հետազոտություններ և գրաֆիկներ աշխարհի մեծ խնդիրների մասին (առողջություն, աղքատություն, կլիմա, երջանկություն), բոլորը անվճար և բաց։
+    hy: Հետազոտություններ և գրաֆիկներ աշխարհի մեծ խնդիրների մասին (առողջություն, աղքատություն, կլիմա, երջանկություն)։ Բոլորն անվճար են և բաց։
   topics:
   - science
   - free
@@ -605,7 +605,7 @@
   name_hy: Ռոբերտ Սահակյանց
   description:
     en: Armenian animator of the Soviet era and after, behind many of the cartoons generations of Armenians grew up with.
-    hy: Հայ անիմատոր՝ խորհրդային շրջանից և դրանից հետո, որի մուլտերով մեծացել են հայերի սերունդներ։
+    hy: Խորհրդային և հետխորհրդային շրջանի հայ անիմատոր, որի մուլտֆիլմերով մեծացել են հայերի մի քանի սերունդ։
   topics:
   - animation
   - classic
@@ -617,7 +617,7 @@
   name: "Puss in Boots: The Last Wish"
   description:
     en: 2022 DreamWorks animation by Joel Crawford. Puss has used up eight of his nine lives and goes after a wishing star, with Death on his trail. Seriously, it's very good.
-    hy: DreamWorks-ի 2022 թվականի անիմացիոն ֆիլմը (ռեժ.՝ Ջոել Քրոֆորդ)։ Կոշիկավոր կատուն ծախսել է իր ինը կյանքերից ութը և գնում է ցանկություններ կատարող աստղի հետևից, իսկ նրա հետքերով գալիս է Մահը։ Լուրջ եմ ասում, շատ լավն ա։
+    hy: DreamWorks-ի 2022 թվականի անիմացիոն ֆիլմը (ռեժ.՝ Ջոել Քրոֆորդ)։ Կոշիկավոր կատուն ծախսել է իր ինը կյանքից ութը և գնում է ցանկություններ կատարող աստղի հետևից, իսկ նրա հետքերով գալիս է Մահը։ Լուրջ եմ ասում, շատ լավն ա։
   topics: [animation]
   links:
     wikipedia: https://en.wikipedia.org/wiki/Puss_in_Boots:_The_Last_Wish
@@ -672,7 +672,7 @@
   name_hy: Հայ խմբեր և երաժիշտներ. մաքսիմալ սուբյեկտիվ ցուցակ
   description:
     en: A hand-made spreadsheet of Armenian bands and musicians, from Tigran Hamasyan and The Windrose to Araspel and Tmbata, each with a short note and a few favorite songs.
-    hy: Հայ խմբերի և երաժիշտների ձեռքով կազմված աղյուսակ՝ Տիգրան Համասյանից և The Windrose-ից մինչև Առասպել և Tmbata, յուրաքանչյուրի մասին կարճ նշումով և մի քանի սիրելի կատարումներով։
+    hy: Հայ խմբերի և երաժիշտների աղյուսակ՝ Տիգրան Համասյանից և The Windrose-ից մինչև Առասպել և Tmbata, յուրաքանչյուրի մասին կարճ նշումով և մի քանի սիրելի կատարումներով։
   topics: [culture]
   links:
     sheet: https://docs.google.com/spreadsheets/d/1rMq3hJ4jcJ6t0G0rmsYICY7XmiLYM7hCxq58cD8XPyE/edit
@@ -684,7 +684,7 @@
   name_hy: Կարգին հաղորդման երգերը
   description:
     en: A fan-made YouTube playlist of 257 songs heard in Kargin Haghordum.
-    hy: Կարգին հաղորդման մեջ հնչած 257 երգերի YouTube փլեյլիստ՝ երկրպագուի կազմած։
+    hy: Կարգին հաղորդման մեջ հնչած 257 երգի YouTube փլեյլիստ՝ երկրպագուի կազմած։
   topics: [kargin]
   links:
     youtube: https://www.youtube.com/playlist?list=PL8sh2VJuXs-t-FQZ4OkeQdBCFqwJWCNQP
@@ -935,7 +935,7 @@
   name: Jimmy Carr
   description:
     en: British comedian known for dark one-liners and quick crowd work.
-    hy: Բրիտանացի կատակերգու՝ հայտնի սև հումորով կարճ կատակներով և հանդիսատեսի հետ արագ փոխհրաձգությամբ։
+    hy: Բրիտանացի կատակերգու, հայտնի է սև հումորով կարճ կատակներով և հանդիսատեսին տրված սրամիտ պատասխաններով։
   topics:
   - comedy
   links:
@@ -1433,7 +1433,7 @@
   name_hy: Դասավանդի՛ր, Հայաստան
   description:
     en: A movement of teachers and leaders working so that every child in Armenia, including those displaced from Nagorno-Karabakh, gets a good education.
-    hy: Ուսուցիչների և առաջնորդների շարժում, որն աշխատում է, որպեսզի Հայաստանի բոլոր երեխաները, այդ թվում՝ Արցախից տեղահանվածները, որակյալ կրթություն ստանան։
+    hy: Ուսուցիչների և առաջնորդների շարժում, որի նպատակն է, որ Հայաստանի բոլոր երեխաները, այդ թվում՝ Արցախից տեղահանվածները, որակյալ կրթություն ստանան։
   topics:
   - education
   - regions
@@ -1503,7 +1503,7 @@
   name: ArmOSS
   description:
     en: Open-source projects by Armenian developers and organizations on GitHub, in one searchable place.
-    hy: Հայ ծրագրավորողների և կազմակերպությունների բաց կոդով նախագծերը GitHub-ում՝ մեկ որոնելի տեղում։
+    hy: Հայ ծրագրավորողների և կազմակերպությունների բաց կոդով նախագծերը GitHub-ում՝ մեկ տեղում և որոնման հնարավորությամբ։
   topics:
   - programming
   - community
@@ -1516,7 +1516,7 @@
   name: PyYerevan
   description:
     en: 'Armenia''s Python community: meetups and talks, with a Telegram group and recorded talks on YouTube.'
-    hy: Հայաստանի Python համայնքը՝ հանդիպումներ և ելույթներ, Telegram խմբով և YouTube-ում ձայնագրված ելույթներով։
+    hy: Հայաստանի Python համայնքը՝ հանդիպումներ, Telegram խումբ և YouTube-ում տեսագրված ելույթներ։
   topics:
   - programming
   - community
@@ -1576,7 +1576,7 @@
   name: The True Size Of
   description:
     en: Drag countries around a world map to see how the Mercator projection distorts their size. Greenland versus Africa is the classic.
-    hy: Քաշեք երկրները աշխարհի քարտեզի վրայով և տեսեք, թե Մերկատորի պրոյեկցիան ինչպես է աղավաղում դրանց չափերը։ Դասական օրինակը Գրենլանդիան և Աֆրիկան են։
+    hy: Քաշեք երկրներն աշխարհի քարտեզի վրայով և տեսեք, թե Մերկատորի պրոյեկցիան ինչպես է աղավաղում դրանց չափերը։ Դասական օրինակը Գրենլանդիան և Աֆրիկան են։
   topics: [maps, free]
   links:
     website: https://thetruesize.com/
@@ -1587,7 +1587,7 @@
   name: LandMark.am
   description:
     en: "An Armenian Heritage Map: a growing map archive of Armenia's natural and historic landmarks."
-    hy: Հայկական ժառանգության քարտեզ՝ Հայաստանի բնական և պատմական տեսարժան վայրերի անընդհատ համալրվող քարտեզ-արխիվ։
+    hy: Հայաստանի բնական և պատմական տեսարժան վայրերի անընդհատ համալրվող քարտեզ-արխիվ։
   topics: [maps, history, culture]
   links:
     website: https://landmark.am/
@@ -1613,7 +1613,7 @@
   name: Fonter.am
   description:
     en: A catalog of over 200 Armenian Unicode fonts, filterable by style and license. Most are free; check each font's license.
-    hy: Ավելի քան 200 հայերեն յունիկոդ տառատեսակների կատալոգ՝ ըստ ոճի և լիցենզիայի ֆիլտրերով։ Մեծ մասն անվճար է, բայց ստուգեք յուրաքանչյուրի լիցենզիան։
+    hy: Ավելի քան 200 հայերեն յունիկոդ տառատեսակի կատալոգ՝ ըստ ոճի և լիցենզիայի ֆիլտրերով։ Մեծ մասն անվճար է, բայց ստուգեք յուրաքանչյուրի լիցենզիան։
   topics: [design, language, free]
   links:
     website: https://fonter.am/hy/fonts
@@ -1697,7 +1697,7 @@
   name: 100,000 Stars
   description:
     en: Fly through the 100,000 nearest stars of the Milky Way, in your browser.
-    hy: Թռչեք Ծիր Կաթինի մոտակա 100 000 աստղերի միջով՝ ձեր բրաուզերում։
+    hy: Թռչեք Ծիր Կաթինի մոտակա 100 000 աստղի միջով՝ ձեր բրաուզերում։
   topics:
   - science
   - free
@@ -1711,7 +1711,7 @@
   name_hy: Բառդլ
   description:
     en: 'Armenian Wordle: guess the word in six tries, with a new word every day.'
-    hy: Օրական բառախաղ հայերենով՝ գուշակիր բառը վեց փորձից, ամեն օր՝ նոր բառ։
+    hy: Օրական բառախաղ հայերենով՝ գուշակեք բառը վեց փորձից, ամեն օր՝ նոր բառ։
   topics:
   - language
   - free
@@ -1749,7 +1749,7 @@
   name: Manim Community
   description:
     en: The community-maintained Python library for creating math animations, in the style of 3Blue1Brown.
-    hy: Համայնքի կողմից զարգացվող Python գրադարան մաթեմատիկական անիմացիաներ ստեղծելու համար՝ 3Blue1Brown-ի ոճով։
+    hy: Համայնքի զարգացրած Python գրադարան մաթեմատիկական անիմացիաներ ստեղծելու համար՝ 3Blue1Brown-ի ոճով։
   topics:
   - math
   - programming
