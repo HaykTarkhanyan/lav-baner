@@ -1210,6 +1210,23 @@
     facebook: https://www.facebook.com/Children.of.Regions
     linkedin: https://www.linkedin.com/company/regionchildren/
 
+- id: strong-mind
+  section: initiatives
+  armenian: true
+  name: Strong Mind
+  name_hy: Հզոր Միտք
+  description:
+    en: A youth NGO (since 2019) building a network of young people from Armenia's regions, Javakhk and the diaspora through educational and motivational projects.
+    hy: Երիտասարդական ՀԿ (2019-ից), որը կրթական և մոտիվացիոն նախագծերով ստեղծում է Հայաստանի մարզերի, Ջավախքի և Սփյուռքի երիտասարդների ցանց։
+  topics:
+  - education
+  - regions
+  - community
+  links:
+    youtube: https://www.youtube.com/@strongmindngo
+    instagram: https://www.instagram.com/strongmindngo/
+    facebook: https://www.facebook.com/StorngMinds
+
 - id: awesome-foundation-yerevan
   section: initiatives
   armenian: true
@@ -1222,6 +1239,20 @@
     website: https://www.awesomefoundation.org/hy/chapters/yerevan
     instagram: https://www.instagram.com/awesome_foundation_yerevan/
     facebook: https://www.facebook.com/awesomeEVN
+
+- id: awesome-nature-armenia
+  section: initiatives
+  armenian: true
+  name: Awesome Nature Armenia
+  description:
+    en: 'The Awesome Foundation''s nature chapter: 28 no-strings micro-grants for environmental ideas in Armenia between 2021 and 2024. The chapter is now inactive, but its projects are worth browsing.'
+    hy: Awesome հիմնադրամի բնապահպանական մասնաճյուղը՝ 2021-2024 թվականներին Հայաստանում բնապահպանական գաղափարների համար տրված 28 միկրոդրամաշնորհ։ Մասնաճյուղն այժմ ակտիվ չէ, բայց նախագծերն արժե տեսնել։
+  topics:
+  - grants
+  - community
+  links:
+    website: https://www.awesomefoundation.org/en/chapters/naturearmenia
+    facebook: https://www.facebook.com/Awesome-Nature-Armenia-169663044692572
 
 - id: imast
   section: initiatives
