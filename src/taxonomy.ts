@@ -31,6 +31,7 @@ export const TOPICS = {
   lectures: { en: "lectures", hy: "դասախոսություններ" },
   course: { en: "course", hy: "դասընթաց" },
   community: { en: "community", hy: "համայնք" },
+  news: { en: "news", hy: "լուրեր" },
   satire: { en: "satire", hy: "երգիծանք" },
   comedy: { en: "comedy", hy: "կատակերգություն" },
   kargin: { en: "Kargin", hy: "Կարգին" },

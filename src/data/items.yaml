@@ -331,6 +331,55 @@
   links:
     website: https://www.aratherat.com/blogs/home-page
 
+- id: armenian-wikisource
+  section: learn
+  armenian: true
+  name: Armenian Wikisource
+  name_hy: Վիքիդարան
+  description:
+    en: A free library of texts in Armenian.
+    hy: Հայերեն տեքստերի ազատ գրադարան։
+  topics:
+  - language
+  - culture
+  - free
+  links:
+    website: https://hy.wikisource.org/
+
+- id: evn-report
+  section: learn
+  armenian: true
+  name: EVN Report
+  description:
+    en: An independent online magazine with in-depth analysis and reporting on Armenia and the South Caucasus.
+    hy: Անկախ առցանց ամսագիր՝ խորքային վերլուծություններով և նյութերով Հայաստանի և Հարավային Կովկասի մասին։
+  topics:
+  - news
+  links:
+    website: https://evnreport.com/
+    instagram: https://www.instagram.com/evnreport/
+    facebook: https://www.facebook.com/evnreport
+    x: https://x.com/evn_report
+    linkedin: https://www.linkedin.com/company/evn-report/
+
+- id: infocom
+  section: learn
+  armenian: true
+  name: Infocom
+  description:
+    en: 'An Armenian analysis and news platform: politics, economy, society, science and data about Armenia.'
+    hy: Հայկական հեղինակային վերլուծական լրատվական հարթակ՝ քաղաքական, տնտեսական, հասարակական և գիտական նյութեր և տվյալներ Հայաստանի մասին։
+  topics:
+  - news
+  links:
+    website: https://infocom.am/
+    youtube: https://www.youtube.com/@infocomam
+    telegram: https://t.me/infocomm
+    instagram: https://www.instagram.com/infocom.am
+    facebook: https://www.facebook.com/infocomm
+    x: https://x.com/infocom_am
+    tiktok: https://www.tiktok.com/@infocom.am
+
 - id: welch-labs
   section: learn
   name: Welch Labs
@@ -507,6 +556,19 @@
   links:
     website: https://ourworldindata.org/
 
+- id: cleo-abram
+  section: learn
+  name: Cleo Abram
+  description:
+    en: Optimistic video explainers on science and technology, from the series Huge If True.
+    hy: Լավատեսական բացատրական վիդեոներ գիտության և տեխնոլոգիաների մասին՝ Huge If True շարքից։
+  topics:
+  - science
+  links:
+    youtube: https://www.youtube.com/@CleoAbram
+    instagram: https://www.instagram.com/cleoabram
+    tiktok: https://www.tiktok.com/@cleoabram
+
 # ---------------------------------------------------------------- film
 
 - id: we-and-our-mountains
@@ -534,6 +596,20 @@
   topics: [comedy, classic]
   links:
     youtube: https://www.youtube.com/watch?v=yO8lGUufKpI
+
+- id: robert-sahakyants
+  section: film
+  armenian: true
+  name: Robert Sahakyants
+  name_hy: Ռոբերտ Սահակյանց
+  description:
+    en: Armenian animator of the Soviet era and after, behind many of the cartoons generations of Armenians grew up with.
+    hy: Հայ անիմատոր՝ խորհրդային շրջանից և դրանից հետո, որի մուլտերով մեծացել են հայերի սերունդներ։
+  topics:
+  - animation
+  - classic
+  links:
+    wikipedia: https://en.wikipedia.org/wiki/Robert_Sahakyants
 
 - id: puss-in-boots-the-last-wish
   section: film
@@ -570,6 +646,23 @@
   links:
     youtube: https://www.youtube.com/@saghsara
     facebook: https://www.facebook.com/saghsara/
+
+- id: tigran-hamasyan
+  section: music
+  armenian: true
+  name: Tigran Hamasyan
+  name_hy: Տիգրան Համասյան
+  description:
+    en: Jazz pianist and composer who fuses improvisation with Armenian traditional music.
+    hy: Ջազ դաշնակահար և կոմպոզիտոր, որը միահյուսում է իմպրովիզացիան հայկական ավանդական երաժշտության հետ։
+  topics:
+  - culture
+  links:
+    website: https://www.tigranhamasyan.com/
+    youtube: https://www.youtube.com/@TigranHamasyan
+    instagram: https://www.instagram.com/tigranhamasyan
+    facebook: https://www.facebook.com/TigranHamasyan
+    spotify: https://open.spotify.com/artist/0D3h8NZqNp7BN97JwtV6eW
 
 - id: armenian-bands-list
   section: music
@@ -1178,6 +1271,21 @@
   links:
     website: https://unsplash.com/collections/CHBCtdPtruo/armenia
 
+- id: yousuf-karsh
+  section: photography
+  armenian: true
+  name: Yousuf Karsh
+  name_hy: Յուսուֆ Կարշ
+  description:
+    en: Armenian-Canadian photographer, one of the great portrait photographers of the 20th century.
+    hy: Հայ-կանադացի լուսանկարիչ, 20-րդ դարի մեծագույն դիմանկարիչներից մեկը։
+  topics:
+  - culture
+  links:
+    website: https://karsh.org/
+    wikipedia: https://en.wikipedia.org/wiki/Yousuf_Karsh
+    instagram: https://www.instagram.com/yousuf_karsh_official
+
 # ---------------------------------------------------------------- food
 
 - id: burastan-murabba
@@ -1254,6 +1362,21 @@
     website: https://www.awesomefoundation.org/en/chapters/naturearmenia
     facebook: https://www.facebook.com/Awesome-Nature-Armenia-169663044692572
 
+- id: awesome-foundation-javakhk
+  section: initiatives
+  armenian: true
+  name: Awesome Foundation Javakhk
+  description:
+    en: 'The Awesome Foundation''s Javakhk chapter: every two months, a micro-grant of up to $1,000 for the best new project in Javakhk, with no red tape.'
+    hy: Awesome հիմնադրամի Ջավախքի մասնաճյուղը՝ երկու ամիսը մեկ մինչև 1000 դոլարին համարժեք միկրոդրամաշնորհ Ջավախքի լավագույն նոր նախագծին՝ առանց ավելորդ թղթաբանության։
+  topics:
+  - grants
+  - community
+  - regions
+  links:
+    website: https://www.awesomefoundation.org/en/chapters/javakhk
+    facebook: https://www.facebook.com/awesomejavakhk
+
 - id: imast
   section: initiatives
   armenian: true
@@ -1281,6 +1404,84 @@
   links:
     website: https://hfc.am/en/
     facebook: https://www.facebook.com/hfcarmenia
+
+- id: tumo
+  section: initiatives
+  armenian: true
+  name: TUMO Center for Creative Technologies
+  name_hy: Թումո
+  description:
+    en: A free education program where teens lead their own learning in creative technology.
+    hy: Անվճար կրթական ծրագիր, որտեղ դեռահասներն իրենք են կառավարում իրենց ուսուցումը ստեղծարար տեխնոլոգիաների ոլորտում։
+  topics:
+  - education
+  - programming
+  - free
+  links:
+    website: https://tumo.org/
+    youtube: https://www.youtube.com/user/tumotube
+    telegram: https://t.me/tumocenter
+    instagram: https://www.instagram.com/tumocenter
+    facebook: https://www.facebook.com/tumocenter
+    x: https://x.com/tumocenter
+
+- id: teach-for-armenia
+  section: initiatives
+  armenian: true
+  name: Teach For Armenia
+  name_hy: Դասավանդի՛ր, Հայաստան
+  description:
+    en: A movement of teachers and leaders working so that every child in Armenia, including those displaced from Nagorno-Karabakh, gets a good education.
+    hy: Ուսուցիչների և առաջնորդների շարժում, որն աշխատում է, որպեսզի Հայաստանի բոլոր երեխաները, այդ թվում՝ Արցախից տեղահանվածները, որակյալ կրթություն ստանան։
+  topics:
+  - education
+  - regions
+  links:
+    website: https://teachforarmenia.org/en
+    youtube: https://www.youtube.com/user/TeachForArmenia
+    instagram: https://www.instagram.com/teachforarmenia
+    facebook: https://www.facebook.com/TeachForArmenia
+    x: https://x.com/teachforarmenia
+    linkedin: https://www.linkedin.com/company/teach-for-armenia
+
+- id: armath
+  section: initiatives
+  armenian: true
+  name: Armath
+  name_hy: Արմաթ
+  description:
+    en: 'Free engineering makerspaces for kids aged 10 to 18 in every region of Armenia since 2011: robotics, programming, 3D printing and CNC.'
+    hy: Անվճար ինժեներական լաբորատորիաներ 10-18 տարեկան երեխաների համար Հայաստանի բոլոր մարզերում՝ 2011-ից. ռոբոտաշինություն, ծրագրավորում, 3D տպագրություն և CNC։
+  topics:
+  - education
+  - programming
+  - regions
+  - free
+  links:
+    website: https://armath.am/
+    youtube: https://www.youtube.com/@ArmathEngineeringLaboratories
+    instagram: https://www.instagram.com/armath_makerspaces
+    facebook: https://www.facebook.com/ArmathEngineeringLaboratories
+
+- id: coaf
+  section: initiatives
+  armenian: true
+  name: 'COAF: Children of Armenia Fund'
+  name_hy: Հայաստանի մանուկներ հիմնադրամ
+  description:
+    en: Education, health and social programs for children in Armenia's villages.
+    hy: Կրթական, առողջապահական և սոցիալական ծրագրեր Հայաստանի գյուղերի երեխաների համար։
+  topics:
+  - education
+  - regions
+  - charity
+  links:
+    website: https://www.coaf.org/
+    youtube: https://www.youtube.com/user/coafkids
+    instagram: https://www.instagram.com/coafkids
+    facebook: https://www.facebook.com/coafkids
+    x: https://x.com/coafkids
+    linkedin: https://www.linkedin.com/company/coafkids
 
 - id: rearmenia
   section: initiatives
@@ -1349,6 +1550,23 @@
   - community
   links:
     instagram: https://instagram.com/kharuyk_hiking_club
+
+- id: hikearmenia
+  section: initiatives
+  armenian: true
+  name: HIKEArmenia
+  description:
+    en: Trail guides and information for discovering Armenia on foot.
+    hy: Արշավային երթուղիներ և տեղեկություններ՝ Հայաստանը ոտքով բացահայտելու համար։
+  topics:
+  - outdoors
+  - maps
+  links:
+    website: https://hikearmenia.org/
+    youtube: https://www.youtube.com/channel/UCEM_y5Sk7Tf-NbzJKSnqIMA
+    instagram: https://www.instagram.com/hike_armenia
+    facebook: https://www.facebook.com/hikearmenia
+    x: https://x.com/hike_armenia
 
 # ---------------------------------------------------------------- tools & maps
 
@@ -1484,3 +1702,58 @@
   - free
   links:
     website: https://stars.chromeexperiments.com/
+
+- id: bardl
+  section: tools
+  armenian: true
+  name: Bardl
+  name_hy: Բառդլ
+  description:
+    en: 'Armenian Wordle: guess the word in six tries, with a new word every day.'
+    hy: Օրական բառախաղ հայերենով՝ գուշակիր բառը վեց փորձից, ամեն օր՝ նոր բառ։
+  topics:
+  - language
+  - free
+  links:
+    website: https://gagikm.github.io/bardl/
+
+- id: nayiri
+  section: tools
+  armenian: true
+  name: Nayiri
+  description:
+    en: 'Electronic tools for the Armenian language: explanatory and multilingual dictionaries, a spell-checker and tutorials.'
+    hy: Հայերենի էլեկտրոնային գործիքներ՝ բացատրական և բազմալեզու բառարաններ, ուղղագրիչ և ուսուցողական նյութեր։
+  topics:
+  - language
+  - free
+  links:
+    website: http://www.nayiri.com/
+    facebook: https://www.facebook.com/NayiriCom
+
+- id: scale-of-the-universe
+  section: tools
+  name: Scale of the Universe
+  description:
+    en: Zoom from the smallest particles to the whole observable universe and compare the sizes of things.
+    hy: Խոշորացրեք ամենափոքր մասնիկներից մինչև ամբողջ դիտարկելի տիեզերքը և համեմատեք իրերի չափերը։
+  topics:
+  - science
+  - free
+  links:
+    website: https://scaleofuniverse.com/en
+
+- id: manim-community
+  section: tools
+  name: Manim Community
+  description:
+    en: The community-maintained Python library for creating math animations, in the style of 3Blue1Brown.
+    hy: Համայնքի կողմից զարգացվող Python գրադարան մաթեմատիկական անիմացիաներ ստեղծելու համար՝ 3Blue1Brown-ի ոճով։
+  topics:
+  - math
+  - programming
+  - animation
+  - free
+  links:
+    website: https://www.manim.community/
+    github: https://github.com/ManimCommunity/manim
