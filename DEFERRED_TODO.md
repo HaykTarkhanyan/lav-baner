@@ -1,5 +1,6 @@
 # Deferred
 
+- **Good words section (Hayk, 2026-11-24):** Hayk wants a section for good Armenian words. First candidates, spelled as he wrote them: Խույվորել, vaghychemyusory, uxojor. CLAUDE.md asks to remind him of this at the start of the next session here.
 - **"Start here" picks (U10):** the row is built and hidden. Hayk will choose 6-8 entries; they go in `src/data/picks.txt`.
 - **9 entries still show the section emoji (2026-11-23):** `we-and-our-mountains` (no poster on any Wikipedia, IMDb blocked), `burastan-murabba` and `musipedia-tapping` (Cloudflare block), `kharuyk` (Instagram needs a login), `chtesutyun` (site has no image), `ashot-nakashyan-webinars`, `armenian-dialects`, `armenian-bands-list`, `yerevan-street-names` (only generic platform logos). An image from Hayk would fix any of them: save it as `src/assets/logos/<id>.webp`.
 
