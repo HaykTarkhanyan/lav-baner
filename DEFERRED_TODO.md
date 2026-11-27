@@ -1,5 +1,19 @@
 # Deferred
 
+- **More picks from Hayk's Telegram (Hayk, 2026-11-27 briefing comments: "add these to the lav-baner repo, I'll handle there later"):**
+  - 3 images and 3 Facebook links in the gitignored `_private/telegram_picks_2026-11-27/` (its README says what each is): a Goldeimer "Soziales Klopapier" pack (non-profit toilet paper that funds sanitation projects: Initiatives?), the "Yes, but" tent comic and the "German kids are kinder" sign (Memes), plus 2 Facebook videos and 1 reel (not opened, they need a login).
+  - A list of letters and poems from his notes of Thu 26 Nov, as written. Which section they belong to is open; ask him:
+    - "Nasa condom size + tampon amount question" (NASA asking Sally Ride whether 100 tampons were right for a week; the Apollo urine-sleeve sizes)
+    - "Feynman letter to dead wife" (Richard Feynman's 1946 letter to Arline, written after she died)
+    - "Bukovski go all the way" (Bukowski's poem "roll the dice"), and «Բուկովսկի»
+    - «Աբսուրդիսմ» (absurdism)
+    - «Կուզես պայթի կուզես ճչա»
+    - «Կոմիտաս նամակը Թումանյանին» (Komitas's letter to Tumanyan) and «Կոմիտաս էս էլ ես եմ»
+    - https://grqamol.am/article/tsovn-er-gishern-er-es-ei-ev-du/
+    - Pushkin, «Я вас любил»: https://ru.wikisource.org/wiki/Я_вас_любил:_любовь_ещё,_быть_может_(Пушкин)
+    - Pushkin, «Ты и вы»: https://ru.wikisource.org/wiki/Ты_и_вы_(Пушкин)
+  - A saying for Jokes & sayings, as written (his note of Thu 26 Nov, 00:57): «ոչմի լավ գործ անպատիժ չի մնում» (the Armenian form of "no good deed goes unpunished"). It needs a `translation` and `meaning`; it stays verbatim as quoted speech.
+
 - **Two picks from Hayk's Telegram, to pick up later (Hayk, 2026-11-25 briefing comments, saved 2026-11-26):**
   - «Էսթռ դեյ» (his note of Tue 24 Nov, 20:47, as written). Not clear what it is (a film, a song, a saying?); ask him before making an entry.
   - A joke for Jokes & sayings (forwarded Tue 24 Nov, 20:24), as written: «Ես մեկը գնումա բժիշկի մոտ ասմոտռի, ես բժիշկը ստուգումա իրան հարցնումա, ապեր ժաժ ես տալիս, ասումա հա, ասումա ընգեր մի արա խանգառում ես։» It needs a `translation` and `meaning`, and an Armenian check through the armenian-style-guide skill only if it gets rewritten (a quoted joke stays verbatim).
